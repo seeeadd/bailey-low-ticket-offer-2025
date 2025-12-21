@@ -35,25 +35,40 @@
   padding: 0;
 }
 
-html {
+html, body {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   max-width: 100%;
   width: 100%;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 body {
   font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 440;
   line-height: 1.6;
-  overflow-x: hidden;
-  max-width: 100%;
-  width: 100%;
   color: #2D2A26;
   background: #1F1D1A;
-  position: relative;
+}
+
+/* Ensure page ends at footer - no extra scroll */
+.sec-footer {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+.sec-footer .site-footer {
+  margin-bottom: 0 !important;
+  padding-bottom: 32px !important;
+}
+body > script {
+  display: block;
+  height: 0 !important;
+  overflow: hidden !important;
 }
 
 .sec {
@@ -5502,7 +5517,6 @@ body > * {
     .sec-testimonials .testimonials-section {
   position: relative;
   width: 100%;
-  min-height: 100vh;
   padding: 100px 0;
   /* Full-width dark background with warm undertones */
   background:

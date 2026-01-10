@@ -5893,7 +5893,8 @@ body > * {
       #1F1D1A 80%,
       #1A1816 100%
     );
-  overflow: hidden;
+  /* Use clip instead of hidden to prevent iOS Safari scroll lock */
+  overflow: clip;
   isolation: isolate;
 }
     /* Noise texture overlay */
@@ -6448,6 +6449,33 @@ body > * {
     font-size: 36px;
   }.sec-testimonials .card-hero .number-value {
     font-size: 42px;
+  }
+  /* iOS Safari scroll fix - disable heavy animations on mobile */
+  .sec-testimonials .aurora-blob-1,
+  .sec-testimonials .aurora-blob-2,
+  .sec-testimonials .aurora-blob-3 {
+    animation: none !important;
+    transform: none !important;
+  }
+  /* Simplify backdrop-filter for better iOS Safari performance */
+  .sec-testimonials .testimonial-card {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: rgba(45, 42, 38, 0.85);
+  }
+}
+
+/* iOS Safari touch device specific fixes */
+@media (pointer: coarse) {
+  .sec-testimonials .testimonials-section {
+    -webkit-overflow-scrolling: touch;
+  }
+  /* Ensure aurora blobs don't interfere with touch scrolling */
+  .sec-testimonials .aurora-blob-1,
+  .sec-testimonials .aurora-blob-2,
+  .sec-testimonials .aurora-blob-3 {
+    pointer-events: none;
+    will-change: auto;
   }
 }
 

@@ -6760,6 +6760,49 @@ body > * {
     }
     /* Card type variations - left border colors */
     .sec-stack .offer-card[data-type="core"] { border-left-color: #E07A5F; }.sec-stack .offer-card[data-type="paths"] { border-left-color: #D4A853; }.sec-stack .offer-card[data-type="resource"] { border-left-color: #1D6B6B; }.sec-stack .offer-card[data-type="traffic"] { border-left-color: #E07A5F; }.sec-stack .offer-card[data-type="build"] { border-left-color: #D4A853; }.sec-stack .offer-card[data-type="vault"] { border-left-color: #1D6B6B; }.sec-stack .offer-card[data-type="daily"] { border-left-color: #E07A5F; }.sec-stack .offer-card[data-type="coaching"] { border-left-color: #D4A853; }.sec-stack .offer-card[data-type="podcast"] { border-left-color: #1D6B6B; }
+    /* Annual card - Premium standout styling */
+    .sec-stack .offer-card[data-type="annual"] {
+      border-left-color: #D4A853;
+      background: linear-gradient(135deg, #FFFDF8 0%, #FFF9EE 50%, #FFFCF5 100%);
+      outline: 1px solid rgba(212, 168, 83, 0.15);
+      box-shadow:
+        0 1px 2px rgba(212, 168, 83, 0.08),
+        0 4px 8px rgba(212, 168, 83, 0.06),
+        0 8px 16px rgba(0, 0, 0, 0.04),
+        0 16px 32px rgba(212, 168, 83, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+    .sec-stack .offer-card[data-type="annual"]::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle at top right, rgba(212, 168, 83, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .sec-stack .offer-card[data-type="annual"]::after {
+      content: '★';
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-size: 18px;
+      color: rgba(212, 168, 83, 0.4);
+      animation: starShimmer 3s ease-in-out infinite;
+    }
+    .sec-stack .offer-card[data-type="annual"]:hover {
+      box-shadow:
+        0 2px 4px rgba(212, 168, 83, 0.12),
+        0 8px 16px rgba(212, 168, 83, 0.1),
+        0 16px 32px rgba(0, 0, 0, 0.06),
+        0 32px 64px rgba(212, 168, 83, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
+    @keyframes starShimmer {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.1); }
+    }
     /* Stagger animation */
     .sec-stack .offer-card:nth-child(1).visible { transition-delay: 0ms; }.sec-stack .offer-card:nth-child(2).visible { transition-delay: 100ms; }.sec-stack .offer-card:nth-child(3).visible { transition-delay: 200ms; }.sec-stack .offer-card:nth-child(4).visible { transition-delay: 300ms; }.sec-stack .offer-card:nth-child(5).visible { transition-delay: 400ms; }.sec-stack .offer-card:nth-child(6).visible { transition-delay: 500ms; }.sec-stack .offer-card:nth-child(7).visible { transition-delay: 600ms; }.sec-stack .offer-card:nth-child(8).visible { transition-delay: 700ms; }.sec-stack .offer-card:nth-child(9).visible { transition-delay: 800ms; }
     /* ==========================================

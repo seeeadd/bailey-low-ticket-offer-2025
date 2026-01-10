@@ -2489,109 +2489,265 @@ body > * {
       width: 90px;
       height: 80px;
     }
-    /* Card 7: Personal Shop Audit - Video review graphic */
+    /* Card 7: Personal Shop Audit - Premium Video Review Mockup */
     .sec-offer .visual-shop-audit {
-      background: linear-gradient(135deg, #FFF8F0 0%, #FFF2E6 100%);
+      background: linear-gradient(145deg, #FDF8F3 0%, #F9F1E8 50%, #FFF8F0 100%);
       position: relative;
+      overflow: visible;
     }
     .sec-offer .audit-graphic {
       position: relative;
-      display: flex;
-      align-items: center;
-      gap: 12px;
+      width: 160px;
+      height: 110px;
     }
-    .sec-offer .audit-screen {
-      width: 80px;
-      height: 56px;
+    /* Main browser/video window */
+    .sec-offer .audit-browser {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 130px;
+      height: 90px;
       background: white;
-      border-radius: 8px;
-      border: 2px solid #D4A853;
-      position: relative;
+      border-radius: 10px;
+      box-shadow:
+        0 8px 32px rgba(45, 42, 38, 0.12),
+        0 2px 8px rgba(45, 42, 38, 0.08);
       overflow: hidden;
-      box-shadow: 0 4px 12px rgba(212, 168, 83, 0.2);
+      border: 1px solid rgba(212, 168, 83, 0.3);
     }
-    .sec-offer .audit-screen-header {
-      height: 10px;
-      background: linear-gradient(135deg, #D4A853 0%, #E8C068 100%);
+    .sec-offer .audit-browser-bar {
+      height: 16px;
+      background: linear-gradient(180deg, #FAFAFA 0%, #F0F0F0 100%);
+      border-bottom: 1px solid #E5E5E5;
       display: flex;
       align-items: center;
-      padding-left: 5px;
-      gap: 3px;
+      padding: 0 8px;
+      gap: 4px;
     }
-    .sec-offer .audit-screen-dot {
-      width: 4px;
-      height: 4px;
+    .sec-offer .audit-browser-dot {
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.6);
     }
-    .sec-offer .audit-screen-content {
+    .sec-offer .audit-browser-dot:nth-child(1) { background: #FF6058; }
+    .sec-offer .audit-browser-dot:nth-child(2) { background: #FFBD2E; }
+    .sec-offer .audit-browser-dot:nth-child(3) { background: #28CA42; }
+    .sec-offer .audit-browser-url {
+      flex: 1;
+      height: 8px;
+      background: #E8E8E8;
+      border-radius: 4px;
+      margin-left: 8px;
+    }
+    /* Shop preview inside browser */
+    .sec-offer .audit-shop-preview {
+      padding: 8px;
+      background: linear-gradient(180deg, #FEFEFE 0%, #FAFAF8 100%);
+      height: calc(100% - 16px);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .sec-offer .audit-shop-header {
       display: flex;
       align-items: center;
-      justify-content: center;
-      height: calc(100% - 10px);
-      background: linear-gradient(180deg, #FFFBF5 0%, #FFF8EE 100%);
+      gap: 6px;
     }
-    .sec-offer .audit-shop-mini {
-      width: 24px;
-      height: 24px;
-      background: linear-gradient(135deg, #1D6B6B 0%, #2A8A8A 100%);
+    .sec-offer .audit-shop-logo {
+      width: 18px;
+      height: 18px;
+      background: linear-gradient(135deg, #1D6B6B 0%, #2A9D9D 100%);
       border-radius: 4px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    .sec-offer .audit-shop-mini svg {
-      width: 14px;
-      height: 14px;
+    .sec-offer .audit-shop-logo svg {
+      width: 10px;
+      height: 10px;
       color: white;
     }
-    .sec-offer .audit-checklist {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
+    .sec-offer .audit-shop-name {
+      flex: 1;
+      height: 6px;
+      background: linear-gradient(90deg, #2D2A26 0%, #5A544C 100%);
+      border-radius: 3px;
+      max-width: 50px;
     }
-    .sec-offer .audit-check-item {
+    .sec-offer .audit-product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+      flex: 1;
+    }
+    .sec-offer .audit-product {
+      background: linear-gradient(135deg, #F5F0EB 0%, #EDE5DC 100%);
+      border-radius: 3px;
+      border: 1px solid #E8E0D5;
+    }
+    /* Floating comment bubble */
+    .sec-offer .audit-comment {
+      position: absolute;
+      top: 22px;
+      right: -8px;
+      background: white;
+      border-radius: 10px;
+      padding: 6px 10px;
+      box-shadow:
+        0 4px 16px rgba(212, 168, 83, 0.2),
+        0 2px 4px rgba(0,0,0,0.05);
+      border: 1.5px solid #D4A853;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
+      animation: auditFloat 3s ease-in-out infinite;
     }
-    .sec-offer .audit-check-circle {
-      width: 16px;
-      height: 16px;
-      background: linear-gradient(135deg, #4A9F6E 0%, #5CB87A 100%);
+    .sec-offer .audit-comment::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-right: 6px solid #D4A853;
+    }
+    .sec-offer .audit-comment::after {
+      content: '';
+      position: absolute;
+      left: -4px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      border-right: 5px solid white;
+    }
+    .sec-offer .audit-comment-icon {
+      width: 14px;
+      height: 14px;
+      background: linear-gradient(135deg, #D4A853 0%, #E8C068 100%);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 2px 4px rgba(74, 159, 110, 0.25);
     }
-    .sec-offer .audit-check-circle svg {
-      width: 9px;
-      height: 9px;
+    .sec-offer .audit-comment-icon svg {
+      width: 8px;
+      height: 8px;
       color: white;
     }
-    .sec-offer .audit-check-line {
-      width: 32px;
-      height: 4px;
-      background: linear-gradient(90deg, #E8DDD0 0%, #D4C9BC 100%);
+    .sec-offer .audit-comment-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .sec-offer .audit-comment-line {
+      height: 3px;
+      background: #E0D5C5;
       border-radius: 2px;
     }
-    .sec-offer .audit-check-item:nth-child(2) .audit-check-line { width: 24px; }
-    .sec-offer .audit-check-item:nth-child(3) .audit-check-line { width: 28px; }
+    .sec-offer .audit-comment-line:nth-child(1) { width: 28px; }
+    .sec-offer .audit-comment-line:nth-child(2) { width: 20px; }
+    /* Bailey avatar with video indicator */
+    .sec-offer .audit-avatar-wrap {
+      position: absolute;
+      bottom: 0;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .sec-offer .audit-avatar {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, #E07A5F 0%, #C96B52 100%);
+      border-radius: 50%;
+      border: 3px solid white;
+      box-shadow: 0 4px 12px rgba(224, 122, 95, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .sec-offer .audit-avatar span {
+      color: white;
+      font-weight: 700;
+      font-size: 13px;
+      font-family: 'OGG', Georgia, serif;
+    }
+    .sec-offer .audit-rec-dot {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      width: 12px;
+      height: 12px;
+      background: #E53935;
+      border-radius: 50%;
+      border: 2px solid white;
+      animation: auditPulse 1.5s ease-in-out infinite;
+    }
+    .sec-offer .audit-avatar-label {
+      margin-top: 4px;
+      font-size: 7px;
+      font-weight: 700;
+      color: #C96B52;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    /* Highlight markers on the shop */
+    .sec-offer .audit-marker {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background: linear-gradient(135deg, #4A9F6E 0%, #5CB87A 100%);
+      border-radius: 50%;
+      border: 2px solid white;
+      box-shadow: 0 2px 8px rgba(74, 159, 110, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sec-offer .audit-marker svg {
+      width: 8px;
+      height: 8px;
+      color: white;
+    }
+    .sec-offer .audit-marker-1 { top: 35px; left: 20px; animation: auditMarkerPop 2s ease-in-out infinite; }
+    .sec-offer .audit-marker-2 { top: 55px; left: 55px; animation: auditMarkerPop 2s ease-in-out infinite 0.3s; }
+    .sec-offer .audit-marker-3 { top: 40px; left: 95px; animation: auditMarkerPop 2s ease-in-out infinite 0.6s; }
+    /* Annual perk badge */
     .sec-offer .audit-badge {
       position: absolute;
-      bottom: -8px;
-      left: 50%;
-      transform: translateX(-50%);
+      bottom: -6px;
+      left: 10px;
       background: linear-gradient(135deg, #D4A853 0%, #E8C068 100%);
       color: white;
       font-size: 7px;
       font-weight: 700;
-      padding: 3px 8px;
-      border-radius: 8px;
-      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      border-radius: 10px;
+      letter-spacing: 0.08em;
       white-space: nowrap;
-      box-shadow: 0 2px 6px rgba(212, 168, 83, 0.3);
+      box-shadow:
+        0 3px 10px rgba(212, 168, 83, 0.35),
+        inset 0 1px 0 rgba(255,255,255,0.2);
+      text-transform: uppercase;
+    }
+    @keyframes auditFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-3px); }
+    }
+    @keyframes auditPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.1); }
+    }
+    @keyframes auditMarkerPop {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
     }
     /* ═══════════════════════════════════════════════════════════════════════════
        ALSO INCLUDED SECTION - Warm Coral Theme (Distinct from Core Cards)
@@ -9104,48 +9260,71 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
           </div>
           <div class="card-visual-area visual-shop-audit">
             <div class="audit-graphic">
-              <div class="audit-screen">
-                <div class="audit-screen-header">
-                  <span class="audit-screen-dot"></span>
-                  <span class="audit-screen-dot"></span>
-                  <span class="audit-screen-dot"></span>
+              <!-- Browser window showing shop -->
+              <div class="audit-browser">
+                <div class="audit-browser-bar">
+                  <span class="audit-browser-dot"></span>
+                  <span class="audit-browser-dot"></span>
+                  <span class="audit-browser-dot"></span>
+                  <span class="audit-browser-url"></span>
                 </div>
-                <div class="audit-screen-content">
-                  <div class="audit-shop-mini">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                      <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                    </svg>
+                <div class="audit-shop-preview">
+                  <div class="audit-shop-header">
+                    <div class="audit-shop-logo">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                      </svg>
+                    </div>
+                    <div class="audit-shop-name"></div>
+                  </div>
+                  <div class="audit-product-grid">
+                    <div class="audit-product"></div>
+                    <div class="audit-product"></div>
+                    <div class="audit-product"></div>
+                    <div class="audit-product"></div>
+                    <div class="audit-product"></div>
+                    <div class="audit-product"></div>
                   </div>
                 </div>
               </div>
-              <div class="audit-checklist">
-                <div class="audit-check-item">
-                  <span class="audit-check-circle">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                  </span>
-                  <span class="audit-check-line"></span>
+              <!-- Floating comment bubble -->
+              <div class="audit-comment">
+                <div class="audit-comment-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                  </svg>
                 </div>
-                <div class="audit-check-item">
-                  <span class="audit-check-circle">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                  </span>
-                  <span class="audit-check-line"></span>
-                </div>
-                <div class="audit-check-item">
-                  <span class="audit-check-circle">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                  </span>
-                  <span class="audit-check-line"></span>
+                <div class="audit-comment-lines">
+                  <span class="audit-comment-line"></span>
+                  <span class="audit-comment-line"></span>
                 </div>
               </div>
-              <span class="audit-badge">ANNUAL PERK</span>
+              <!-- Bailey avatar recording -->
+              <div class="audit-avatar-wrap">
+                <div class="audit-avatar">
+                  <span>B</span>
+                  <span class="audit-rec-dot"></span>
+                </div>
+                <span class="audit-avatar-label">Recording</span>
+              </div>
+              <!-- Check markers on shop -->
+              <span class="audit-marker audit-marker-1">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <span class="audit-marker audit-marker-2">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <span class="audit-marker audit-marker-3">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <!-- Annual perk badge -->
+              <span class="audit-badge">Annual Perk</span>
             </div>
           </div>
           <div class="card-content">

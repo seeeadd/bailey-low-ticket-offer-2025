@@ -1139,6 +1139,15 @@ body > * {
       font-style: italic;
       margin-top: 6px;
     }
+    /* Shop Audit Reminder - CTA highlight */
+    .cta-shop-audit-reminder {
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: #D4A853;
+      margin: 10px 0 0;
+      letter-spacing: 0.02em;
+    }
     /* Link */
     .sec-hero .offer-card__link {
       text-align: center;
@@ -2488,6 +2497,266 @@ body > * {
     }.sec-offer .visual-traffic-loop svg {
       width: 90px;
       height: 80px;
+    }
+    /* Card 7: Personal Shop Audit - Premium Video Review Mockup */
+    .sec-offer .visual-shop-audit {
+      background: linear-gradient(145deg, #FDF8F3 0%, #F9F1E8 50%, #FFF8F0 100%);
+      position: relative;
+      overflow: visible;
+    }
+    .sec-offer .audit-graphic {
+      position: relative;
+      width: 160px;
+      height: 110px;
+    }
+    /* Main browser/video window */
+    .sec-offer .audit-browser {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 130px;
+      height: 90px;
+      background: white;
+      border-radius: 10px;
+      box-shadow:
+        0 8px 32px rgba(45, 42, 38, 0.12),
+        0 2px 8px rgba(45, 42, 38, 0.08);
+      overflow: hidden;
+      border: 1px solid rgba(212, 168, 83, 0.3);
+    }
+    .sec-offer .audit-browser-bar {
+      height: 16px;
+      background: linear-gradient(180deg, #FAFAFA 0%, #F0F0F0 100%);
+      border-bottom: 1px solid #E5E5E5;
+      display: flex;
+      align-items: center;
+      padding: 0 8px;
+      gap: 4px;
+    }
+    .sec-offer .audit-browser-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+    .sec-offer .audit-browser-dot:nth-child(1) { background: #FF6058; }
+    .sec-offer .audit-browser-dot:nth-child(2) { background: #FFBD2E; }
+    .sec-offer .audit-browser-dot:nth-child(3) { background: #28CA42; }
+    .sec-offer .audit-browser-url {
+      flex: 1;
+      height: 8px;
+      background: #E8E8E8;
+      border-radius: 4px;
+      margin-left: 8px;
+    }
+    /* Shop preview inside browser */
+    .sec-offer .audit-shop-preview {
+      padding: 8px;
+      background: linear-gradient(180deg, #FEFEFE 0%, #FAFAF8 100%);
+      height: calc(100% - 16px);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .sec-offer .audit-shop-header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .sec-offer .audit-shop-logo {
+      width: 18px;
+      height: 18px;
+      background: linear-gradient(135deg, #1D6B6B 0%, #2A9D9D 100%);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sec-offer .audit-shop-logo svg {
+      width: 10px;
+      height: 10px;
+      color: white;
+    }
+    .sec-offer .audit-shop-name {
+      flex: 1;
+      height: 6px;
+      background: linear-gradient(90deg, #2D2A26 0%, #5A544C 100%);
+      border-radius: 3px;
+      max-width: 50px;
+    }
+    .sec-offer .audit-product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+      flex: 1;
+    }
+    .sec-offer .audit-product {
+      background: linear-gradient(135deg, #F5F0EB 0%, #EDE5DC 100%);
+      border-radius: 3px;
+      border: 1px solid #E8E0D5;
+    }
+    /* Floating comment bubble */
+    .sec-offer .audit-comment {
+      position: absolute;
+      top: 22px;
+      right: -8px;
+      background: white;
+      border-radius: 10px;
+      padding: 6px 10px;
+      box-shadow:
+        0 4px 16px rgba(212, 168, 83, 0.2),
+        0 2px 4px rgba(0,0,0,0.05);
+      border: 1.5px solid #D4A853;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      animation: auditFloat 3s ease-in-out infinite;
+    }
+    .sec-offer .audit-comment::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-right: 6px solid #D4A853;
+    }
+    .sec-offer .audit-comment::after {
+      content: '';
+      position: absolute;
+      left: -4px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      border-right: 5px solid white;
+    }
+    .sec-offer .audit-comment-icon {
+      width: 14px;
+      height: 14px;
+      background: linear-gradient(135deg, #D4A853 0%, #E8C068 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sec-offer .audit-comment-icon svg {
+      width: 8px;
+      height: 8px;
+      color: white;
+    }
+    .sec-offer .audit-comment-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .sec-offer .audit-comment-line {
+      height: 3px;
+      background: #E0D5C5;
+      border-radius: 2px;
+    }
+    .sec-offer .audit-comment-line:nth-child(1) { width: 28px; }
+    .sec-offer .audit-comment-line:nth-child(2) { width: 20px; }
+    /* Bailey avatar with video indicator */
+    .sec-offer .audit-avatar-wrap {
+      position: absolute;
+      bottom: 0;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .sec-offer .audit-avatar {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, #E07A5F 0%, #C96B52 100%);
+      border-radius: 50%;
+      border: 3px solid white;
+      box-shadow: 0 4px 12px rgba(224, 122, 95, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .sec-offer .audit-avatar span {
+      color: white;
+      font-weight: 700;
+      font-size: 13px;
+      font-family: 'OGG', Georgia, serif;
+    }
+    .sec-offer .audit-rec-dot {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      width: 12px;
+      height: 12px;
+      background: #E53935;
+      border-radius: 50%;
+      border: 2px solid white;
+      animation: auditPulse 1.5s ease-in-out infinite;
+    }
+    .sec-offer .audit-avatar-label {
+      margin-top: 4px;
+      font-size: 7px;
+      font-weight: 700;
+      color: #C96B52;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    /* Highlight markers on the shop */
+    .sec-offer .audit-marker {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background: linear-gradient(135deg, #4A9F6E 0%, #5CB87A 100%);
+      border-radius: 50%;
+      border: 2px solid white;
+      box-shadow: 0 2px 8px rgba(74, 159, 110, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sec-offer .audit-marker svg {
+      width: 8px;
+      height: 8px;
+      color: white;
+    }
+    .sec-offer .audit-marker-1 { top: 35px; left: 20px; animation: auditMarkerPop 2s ease-in-out infinite; }
+    .sec-offer .audit-marker-2 { top: 55px; left: 55px; animation: auditMarkerPop 2s ease-in-out infinite 0.3s; }
+    .sec-offer .audit-marker-3 { top: 40px; left: 95px; animation: auditMarkerPop 2s ease-in-out infinite 0.6s; }
+    /* Annual perk badge */
+    .sec-offer .audit-badge {
+      position: absolute;
+      bottom: -6px;
+      left: 10px;
+      background: linear-gradient(135deg, #D4A853 0%, #E8C068 100%);
+      color: white;
+      font-size: 7px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 10px;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+      box-shadow:
+        0 3px 10px rgba(212, 168, 83, 0.35),
+        inset 0 1px 0 rgba(255,255,255,0.2);
+      text-transform: uppercase;
+    }
+    @keyframes auditFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-3px); }
+    }
+    @keyframes auditPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.1); }
+    }
+    @keyframes auditMarkerPop {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
     }
     /* ═══════════════════════════════════════════════════════════════════════════
        ALSO INCLUDED SECTION - Warm Coral Theme (Distinct from Core Cards)
@@ -3989,6 +4258,10 @@ body > * {
       background: linear-gradient(135deg, #FFF0EB 0%, #FFE4DB 100%);
       color: #C4614A;
       border: 1px solid rgba(224, 122, 95, 0.2);
+    }.sec-offer .card-label--audit {
+      background: linear-gradient(135deg, #FFF8F0 0%, #FFF2E6 100%);
+      color: #B8923D;
+      border: 1px solid rgba(212, 168, 83, 0.25);
     }
     /* === CORNER NUMBERING - Editorial Touch === */
     .sec-offer .card-number {
@@ -6496,6 +6769,49 @@ body > * {
     }
     /* Card type variations - left border colors */
     .sec-stack .offer-card[data-type="core"] { border-left-color: #E07A5F; }.sec-stack .offer-card[data-type="paths"] { border-left-color: #D4A853; }.sec-stack .offer-card[data-type="resource"] { border-left-color: #1D6B6B; }.sec-stack .offer-card[data-type="traffic"] { border-left-color: #E07A5F; }.sec-stack .offer-card[data-type="build"] { border-left-color: #D4A853; }.sec-stack .offer-card[data-type="vault"] { border-left-color: #1D6B6B; }.sec-stack .offer-card[data-type="daily"] { border-left-color: #E07A5F; }.sec-stack .offer-card[data-type="coaching"] { border-left-color: #D4A853; }.sec-stack .offer-card[data-type="podcast"] { border-left-color: #1D6B6B; }
+    /* Annual card - Premium standout styling */
+    .sec-stack .offer-card[data-type="annual"] {
+      border-left-color: #D4A853;
+      background: linear-gradient(135deg, #FFFDF8 0%, #FFF9EE 50%, #FFFCF5 100%);
+      outline: 1px solid rgba(212, 168, 83, 0.15);
+      box-shadow:
+        0 1px 2px rgba(212, 168, 83, 0.08),
+        0 4px 8px rgba(212, 168, 83, 0.06),
+        0 8px 16px rgba(0, 0, 0, 0.04),
+        0 16px 32px rgba(212, 168, 83, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+    .sec-stack .offer-card[data-type="annual"]::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle at top right, rgba(212, 168, 83, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .sec-stack .offer-card[data-type="annual"]::after {
+      content: '★';
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-size: 18px;
+      color: rgba(212, 168, 83, 0.4);
+      animation: starShimmer 3s ease-in-out infinite;
+    }
+    .sec-stack .offer-card[data-type="annual"]:hover {
+      box-shadow:
+        0 2px 4px rgba(212, 168, 83, 0.12),
+        0 8px 16px rgba(212, 168, 83, 0.1),
+        0 16px 32px rgba(0, 0, 0, 0.06),
+        0 32px 64px rgba(212, 168, 83, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
+    @keyframes starShimmer {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.1); }
+    }
     /* Stagger animation */
     .sec-stack .offer-card:nth-child(1).visible { transition-delay: 0ms; }.sec-stack .offer-card:nth-child(2).visible { transition-delay: 100ms; }.sec-stack .offer-card:nth-child(3).visible { transition-delay: 200ms; }.sec-stack .offer-card:nth-child(4).visible { transition-delay: 300ms; }.sec-stack .offer-card:nth-child(5).visible { transition-delay: 400ms; }.sec-stack .offer-card:nth-child(6).visible { transition-delay: 500ms; }.sec-stack .offer-card:nth-child(7).visible { transition-delay: 600ms; }.sec-stack .offer-card:nth-child(8).visible { transition-delay: 700ms; }.sec-stack .offer-card:nth-child(9).visible { transition-delay: 800ms; }
     /* ==========================================
@@ -6517,6 +6833,10 @@ body > * {
     }.sec-stack .card-badge-core {
       background: linear-gradient(135deg, #E8917A 0%, #E07A5F 100%);
       color: white;
+    }.sec-stack .card-badge-annual {
+      background: linear-gradient(135deg, #D4A853 0%, #C9982E 100%);
+      color: white;
+      box-shadow: 0 2px 8px rgba(212, 168, 83, 0.35);
     }.sec-stack .card-badge-paths {
       background: linear-gradient(135deg, rgba(212, 168, 83, 0.15) 0%, rgba(212, 168, 83, 0.35) 100%);
       border: 1px solid rgba(212, 168, 83, 0.4);
@@ -6849,6 +7169,216 @@ body > * {
       border-radius: 8px;
       width: 100%;
       height: auto;
+    }
+    /* ═══════════════════════════════════════════════════════════════════════════
+       AUDIT CARD GRAPHIC - Large version for offer cards section
+       ═══════════════════════════════════════════════════════════════════════════ */
+    .sec-stack .audit-mockup-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 280px;
+    }
+    .sec-stack .audit-card-graphic {
+      position: relative;
+      width: 280px;
+      height: 200px;
+      z-index: 2;
+    }
+    .sec-stack .audit-browser-lg {
+      position: absolute;
+      top: 10px;
+      left: 0;
+      width: 200px;
+      height: 150px;
+      background: white;
+      border-radius: 12px;
+      box-shadow:
+        0 12px 40px rgba(45, 42, 38, 0.15),
+        0 4px 12px rgba(45, 42, 38, 0.08);
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+    .sec-stack .audit-browser-bar-lg {
+      height: 24px;
+      background: linear-gradient(180deg, #FAFAFA 0%, #F0F0F0 100%);
+      border-bottom: 1px solid #E5E5E5;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      gap: 5px;
+    }
+    .sec-stack .audit-dot-lg {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+    .sec-stack .audit-dot-lg.red { background: #FF6058; }
+    .sec-stack .audit-dot-lg.yellow { background: #FFBD2E; }
+    .sec-stack .audit-dot-lg.green { background: #28CA42; }
+    .sec-stack .audit-url-lg {
+      flex: 1;
+      height: 12px;
+      background: #E8E8E8;
+      border-radius: 6px;
+      margin-left: 12px;
+    }
+    .sec-stack .audit-shop-preview-lg {
+      padding: 12px;
+      background: linear-gradient(180deg, #FEFEFE 0%, #FAFAF8 100%);
+      height: calc(100% - 24px);
+    }
+    .sec-stack .audit-shop-header-lg {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .sec-stack .audit-shop-logo-lg {
+      width: 24px;
+      height: 24px;
+      background: linear-gradient(135deg, #1D6B6B 0%, #2A9D9D 100%);
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sec-stack .audit-shop-logo-lg svg {
+      width: 14px;
+      height: 14px;
+      color: white;
+    }
+    .sec-stack .audit-shop-name-lg {
+      flex: 1;
+      height: 10px;
+      background: linear-gradient(90deg, #2D2A26 0%, #8A847A 100%);
+      border-radius: 5px;
+      max-width: 70px;
+    }
+    .sec-stack .audit-shop-stars {
+      font-size: 8px;
+      color: #D4A853;
+      letter-spacing: 1px;
+    }
+    .sec-stack .audit-products-lg {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+    }
+    .sec-stack .audit-product-lg {
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, #F5F0EB 0%, #EDE5DC 100%);
+      border-radius: 4px;
+      border: 1px solid #E8E0D5;
+    }
+    /* Floating feedback cards */
+    .sec-stack .audit-feedback-card {
+      position: absolute;
+      background: white;
+      border-radius: 8px;
+      padding: 6px 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      box-shadow:
+        0 4px 16px rgba(0,0,0,0.1),
+        0 2px 4px rgba(0,0,0,0.05);
+      z-index: 5;
+    }
+    .sec-stack .feedback-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+    }
+    .sec-stack .feedback-icon.delete {
+      background: linear-gradient(135deg, #E53935 0%, #C62828 100%);
+      color: white;
+    }
+    .sec-stack .feedback-icon.save {
+      background: linear-gradient(135deg, #4A9F6E 0%, #388E5C 100%);
+      color: white;
+    }
+    .sec-stack .feedback-icon.gold {
+      background: linear-gradient(135deg, #D4A853 0%, #C9982E 100%);
+      color: white;
+    }
+    .sec-stack .feedback-text {
+      color: #2D2A26;
+    }
+    .sec-stack .audit-feedback-1 {
+      top: 45px;
+      right: 30px;
+      animation: auditFeedbackFloat 3s ease-in-out infinite;
+    }
+    .sec-stack .audit-feedback-2 {
+      top: 90px;
+      right: 10px;
+      animation: auditFeedbackFloat 3s ease-in-out infinite 0.5s;
+    }
+    .sec-stack .audit-feedback-3 {
+      top: 135px;
+      right: 45px;
+      animation: auditFeedbackFloat 3s ease-in-out infinite 1s;
+    }
+    /* Bailey video bubble */
+    .sec-stack .audit-video-bubble {
+      position: absolute;
+      bottom: 5px;
+      left: 160px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      border-radius: 24px;
+      padding: 6px 12px 6px 6px;
+      box-shadow:
+        0 6px 20px rgba(224, 122, 95, 0.25),
+        0 2px 6px rgba(0,0,0,0.08);
+      border: 2px solid #E07A5F;
+    }
+    .sec-stack .audit-bailey-avatar {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, #E07A5F 0%, #C96B52 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 14px;
+      font-family: 'OGG', Georgia, serif;
+    }
+    .sec-stack .audit-rec-indicator {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      color: #E53935;
+      letter-spacing: 0.05em;
+    }
+    .sec-stack .rec-dot {
+      width: 8px;
+      height: 8px;
+      background: #E53935;
+      border-radius: 50%;
+      animation: recPulse 1.2s ease-in-out infinite;
+    }
+    @keyframes auditFeedbackFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+    @keyframes recPulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
     }
         /* Stars below card images */
     .card-image .halo-stars {
@@ -8546,8 +9076,8 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
     </div>
     <div class="top-bar__deal">
       <div class="top-bar__deal-badge">
-        <span class="top-bar__deal-price">$347/yr</span>
-        <span class="top-bar__deal-was">$564</span>
+        <span class="top-bar__deal-price">★ $327/yr</span>
+        <span class="top-bar__deal-was">$684</span>
       </div>
     </div>
     <a href="https://digitallypurposed.thrivecart.com/ai-design-grow-experience-annual-only/" target="_blank" rel="noopener noreferrer" class="top-bar__cta">
@@ -8681,16 +9211,16 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
             <div class="price-block">
               <div class="price-col price-col--left">
                 <div class="price-amount">
-                  <span class="price-value">$347</span>
-                  <span class="price-period">/mo</span>
+                  <span class="price-value">$327</span>
+                  <span class="price-period">/yr</span>
                 </div>
                 <span class="price-access">12 whole months access</span>
                 <span class="price-billing">Billed annually</span>
               </div>
               <div class="price-col price-col--right">
-                <span class="price-daily"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>$347/yr today when billed annually</span>
+                <span class="price-daily"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>$327/yr today when billed annually</span>
                 <div class="price-savings">
-                  <span class="price-savings__text">Save $240/yr vs $47/monthly</span>
+                  <span class="price-savings__text">Save $357/yr vs $57/monthly</span>
                 </div>
               </div>
             </div>
@@ -8730,11 +9260,12 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
             </a>
+            <p class="cta-shop-audit-reminder">★ Includes Personal Shop Audit (Annual Bonus)</p>
 
             <img src="https://i.imgur.com/AFTdKOi.png" alt="Payment methods" class="offer-card__cards" style="display: block; max-width: 200px; margin: 12px auto 0; opacity: 0.8;">
 
             <div class="offer-card__microcopy">
-              <p class="microcopy-line">$347/yr annual · Instant access · Cancel anytime</p>
+              <p class="microcopy-line">$327/yr annual · Save $357/yr vs $57/monthly · Cancel anytime</p>
               <p class="microcopy-urgency">Price goes up very soon, before January.</p>
             </div>
           </div>
@@ -8960,8 +9491,8 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
           </div>
         </article>
 
-        <!-- Card 6: My Traffic Loop — WIDE CARD (avoids orphan) -->
-        <article class="feature-card feature-card--wide">
+        <!-- Card 6: My Traffic Loop -->
+        <article class="feature-card">
           <span class="card-number">06</span>
           <div class="card-sparkles">
             <span class="sparkle"><svg viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg></span>
@@ -8983,6 +9514,99 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
             <ul class="card-bullets">
               <li>My complete Pinterest strategy that runs while I sleep</li>
               <li>The email sequences that turn browsers into buyers</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Card 7: Personal Shop Audit -->
+        <article class="feature-card">
+          <span class="card-number">07</span>
+          <div class="card-sparkles">
+            <span class="sparkle"><svg viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg></span>
+            <span class="sparkle"><svg viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg></span>
+          </div>
+          <div class="card-visual-area visual-shop-audit">
+            <div class="audit-graphic">
+              <!-- Browser window showing shop -->
+              <div class="audit-browser">
+                <div class="audit-browser-bar">
+                  <span class="audit-browser-dot"></span>
+                  <span class="audit-browser-dot"></span>
+                  <span class="audit-browser-dot"></span>
+                  <span class="audit-browser-url"></span>
+                </div>
+                <div class="audit-shop-preview">
+                  <div class="audit-shop-header">
+                    <div class="audit-shop-logo">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                      </svg>
+                    </div>
+                    <div class="audit-shop-name"></div>
+                  </div>
+                  <div class="audit-product-grid">
+                    <div class="audit-product"></div>
+                    <div class="audit-product"></div>
+                    <div class="audit-product"></div>
+                    <div class="audit-product"></div>
+                    <div class="audit-product"></div>
+                    <div class="audit-product"></div>
+                  </div>
+                </div>
+              </div>
+              <!-- Floating comment bubble -->
+              <div class="audit-comment">
+                <div class="audit-comment-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                  </svg>
+                </div>
+                <div class="audit-comment-lines">
+                  <span class="audit-comment-line"></span>
+                  <span class="audit-comment-line"></span>
+                </div>
+              </div>
+              <!-- Bailey avatar recording -->
+              <div class="audit-avatar-wrap">
+                <div class="audit-avatar">
+                  <span>B</span>
+                  <span class="audit-rec-dot"></span>
+                </div>
+                <span class="audit-avatar-label">Recording</span>
+              </div>
+              <!-- Check markers on shop -->
+              <span class="audit-marker audit-marker-1">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <span class="audit-marker audit-marker-2">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <span class="audit-marker audit-marker-3">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <!-- Annual perk badge -->
+              <span class="audit-badge">Annual Perk</span>
+            </div>
+          </div>
+          <div class="card-content">
+            <span class="card-label card-label--audit">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              Audit
+            </span>
+            <h3 class="card-title">Personal Shop Audit</h3>
+            <p class="card-outcome">I open these monthly and go through your shop on video - what's working, what needs to change, exactly what I'd do differently. Annual members get one to use whenever you're ready.</p>
+            <ul class="card-bullets">
+              <li>A full video walkthrough of YOUR actual shop</li>
+              <li>Use it whenever you're ready within the year</li>
             </ul>
           </div>
         </article>
@@ -9714,15 +10338,15 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
       <div class="pricing-columns">
         <!-- Left column - dominant -->
         <div class="price-left">
-          <div class="price-main">$347<span class="price-unit">/mo</span></div>
+          <div class="price-main">$327<span class="price-unit">/yr</span></div>
           <div class="price-access">12 whole months access</div>
           <div class="price-billing">Billed annually</div>
         </div>
 
         <!-- Right column - supporting stack -->
         <div class="price-right">
-          <div class="price-daily"><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>$347/yr today when billed annually</div>
-          <div class="price-savings">Save $240/yr vs $47/monthly</div>
+          <div class="price-daily"><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>$327/yr today when billed annually</div>
+          <div class="price-savings">Save $357/yr vs $57/monthly</div>
         </div>
       </div>
 
@@ -9737,6 +10361,7 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
         Get Instant Access
         <span class="btn-arrow">→</span>
       </a>
+      <p class="cta-shop-audit-reminder">★ Includes Personal Shop Audit (Annual Bonus)</p>
 
       <!-- Payment cards image -->
       <img src="https://i.imgur.com/881hYo3.png" alt="Secure payment methods" class="payment-cards">
@@ -9747,7 +10372,7 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
         <span class="trust-dot"></span>
         <span class="trust-item">Instant access</span>
         <span class="trust-dot"></span>
-        <span class="trust-item">No surprises</span>
+        <span class="trust-item">Save $357/yr vs monthly</span>
       </div>
     </div>
   </section>
@@ -10268,6 +10893,97 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
   <!-- OFFER CARDS CONTAINER -->
   <div class="offer-cards-container">
 
+    <!-- CARD 0: ANNUAL BONUS - Personal Shop Audit -->
+    <article class="offer-card" data-type="annual">
+      <div class="card-content">
+        <div class="card-header">
+          <span class="card-badge card-badge-annual">ANNUAL BONUS</span>
+          <h3 class="card-title">Personal Shop Audit</h3>
+        </div>
+        <p class="card-description">I open these up once a month and personally record a video walking through your entire shop. Same eyes that built a $1M Etsy business - now looking at yours.</p>
+        <ul class="card-features">
+          <li class="feature-item">
+            <span class="feature-number">01</span>
+            <span class="feature-text"><strong>The listings I'd delete</strong> because they're dragging your shop down and you don't even realize it</span>
+          </li>
+          <li class="feature-item">
+            <span class="feature-number">02</span>
+            <span class="feature-text"><strong>The ones worth saving</strong> and exactly what I'd change to make them work harder</span>
+          </li>
+          <li class="feature-item">
+            <span class="feature-number">03</span>
+            <span class="feature-text"><strong>What I see that you can't</strong> - after 4 years of running my own shop, I spot things in seconds that take most sellers months to figure out</span>
+          </li>
+        </ul>
+        <div class="use-it-when">
+          <span class="use-it-label">Use it when:</span>
+          <span class="use-it-text">you want someone who's actually done it to tell you what's wrong - not guess.</span>
+        </div>
+        <p class="card-outcome">Annual members get one to use whenever you're ready within the year.</p>
+        <div class="card-stat">
+          <span class="stat-number">my eyes</span>
+          <span class="stat-label">on your actual shop</span>
+        </div>
+      </div>
+      <div class="card-mockup-zone">
+        <div class="card-image audit-mockup-image">
+          <div class="audit-card-graphic">
+            <!-- Browser window showing shop -->
+            <div class="audit-browser-lg">
+              <div class="audit-browser-bar-lg">
+                <span class="audit-dot-lg red"></span>
+                <span class="audit-dot-lg yellow"></span>
+                <span class="audit-dot-lg green"></span>
+                <span class="audit-url-lg"></span>
+              </div>
+              <div class="audit-shop-preview-lg">
+                <div class="audit-shop-header-lg">
+                  <div class="audit-shop-logo-lg">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    </svg>
+                  </div>
+                  <div class="audit-shop-name-lg"></div>
+                  <div class="audit-shop-stars">★★★★★</div>
+                </div>
+                <div class="audit-products-lg">
+                  <div class="audit-product-lg"></div>
+                  <div class="audit-product-lg"></div>
+                  <div class="audit-product-lg"></div>
+                  <div class="audit-product-lg"></div>
+                  <div class="audit-product-lg"></div>
+                  <div class="audit-product-lg"></div>
+                </div>
+              </div>
+            </div>
+            <!-- Floating feedback cards -->
+            <div class="audit-feedback-card audit-feedback-1">
+              <span class="feedback-icon delete">✕</span>
+              <span class="feedback-text">Delete this</span>
+            </div>
+            <div class="audit-feedback-card audit-feedback-2">
+              <span class="feedback-icon save">✓</span>
+              <span class="feedback-text">Fix title</span>
+            </div>
+            <div class="audit-feedback-card audit-feedback-3">
+              <span class="feedback-icon gold">★</span>
+              <span class="feedback-text">Winner!</span>
+            </div>
+            <!-- Bailey video bubble -->
+            <div class="audit-video-bubble">
+              <div class="audit-bailey-avatar">B</div>
+              <div class="audit-rec-indicator">
+                <span class="rec-dot"></span>
+                REC
+              </div>
+            </div>
+          </div>
+          <span class="halo-stars">✦ ✦ ✦</span>
+        </div>
+        <div class="mockup-annotation-box">"I'll tell you exactly what I'd change"</div>
+      </div>
+    </article>
+
     <!-- CARD 1: CORE - My $10K Profit Formula -->
     <article class="offer-card" data-type="core">
       <div class="card-content">
@@ -10760,8 +11476,8 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
           <div class="pricing-main">
             <div class="pricing-amount">
               <span class="price-currency">$</span>
-              <span class="price-value">27</span>
-              <span class="price-period">/mo</span>
+              <span class="price-value">327</span>
+              <span class="price-period">/yr</span>
             </div>
             <div class="pricing-access">
               <span>12 whole months access</span>
@@ -10774,9 +11490,9 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
           <div class="pricing-divider"></div>
 
           <div class="pricing-breakdown">
-            <div class="breakdown-daily"><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>$347/yr today when billed annually</div>
+            <div class="breakdown-daily"><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>$327/yr today when billed annually</div>
             <div class="breakdown-savings">
-              <span>Save $240/yr vs $47/monthly</span>
+              <span>Save $357/yr vs $57/monthly</span>
             </div>
           </div>
         </div>
@@ -10788,6 +11504,7 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
             <path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
+        <p class="cta-shop-audit-reminder">★ Includes Personal Shop Audit (Annual Bonus)</p>
         
 
                 <!-- CTA Card Image -->
@@ -11060,13 +11777,14 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
          class="cta-button">
         <span class="button-shine"></span>
         <span class="cta-label">Join AI Design & Grow for</span>
-        <span class="cta-price">$347/yr</span>
+        <span class="cta-price">$327/yr</span>
       </a>
     </div>
+    <p class="cta-shop-audit-reminder" style="color: #D4A853;">★ Includes Personal Shop Audit (Annual Bonus)</p>
 
     <!-- Microcopy -->
     <p class="cta-microcopy">
-      Instant access inside Skool. Cancel anytime.
+      Save $357/yr vs $57/monthly · Instant access · Cancel anytime
     </p>
 
     <!-- Trust section - integrated design -->

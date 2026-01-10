@@ -92,24 +92,16 @@ body {
 }
 
 /* Ensure page ends at footer - no extra scroll */
-html, body {
-  height: auto;
-  overflow-y: auto;
-}
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
 .sec-footer {
   margin-bottom: 0 !important;
   padding-bottom: 0 !important;
-  margin-top: auto; /* Push footer to bottom if content is short */
 }
 .sec-footer .site-footer {
   margin-bottom: 0 !important;
   padding-bottom: 32px !important;
 }
+
+/* Hide script tags from layout calculations */
 body > script {
   display: none !important;
 }

@@ -2797,26 +2797,23 @@ body > * {
       color: #8B7355;
     }.sec-offer .also-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
+      max-width: 800px;
+      margin: 0 auto;
     }.sec-offer .also-grid-row-2 {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
-      max-width: 760px;
+      max-width: 800px;
       margin: 20px auto 0;
     }
 
-    @media (max-width: 800px) {.sec-offer .also-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }.sec-offer .also-grid-row-2 {
+    @media (max-width: 500px) {
+      .sec-offer .also-grid,
+      .sec-offer .also-grid-row-2 {
         grid-template-columns: 1fr;
-        max-width: 360px;
-      }
-    }
-
-    @media (max-width: 500px) {.sec-offer .also-grid {
-        grid-template-columns: 1fr;
+        max-width: none;
       }.sec-offer .also-included {
         padding: 32px 24px;
       }
@@ -4489,13 +4486,15 @@ body > * {
     /* Bento-style grid for bonuses */
     .sec-offer .also-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
+      max-width: 800px;
+      margin: 0 auto;
     }.sec-offer .also-grid-row-2 {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
-      max-width: 680px;
+      max-width: 800px;
       margin: 20px auto 0;
     }
     /* Mini Cards - Gift Card Style */
@@ -4532,11 +4531,13 @@ body > * {
         0 8px 24px rgba(45, 42, 38, 0.1),
         0 16px 40px rgba(45, 42, 38, 0.08);
     }
-        /* Stagger cards for visual interest */
-    .also-grid .mini-card:nth-child(2) {
-      transform: translateY(12px);
-    }.sec-offer .also-grid .mini-card:nth-child(2):hover {
-      transform: translateY(6px) rotate(0.5deg);
+        /* Slight stagger for visual interest */
+    .also-grid .mini-card:nth-child(2),
+    .also-grid-row-2 .mini-card:nth-child(2) {
+      transform: translateY(8px);
+    }.sec-offer .also-grid .mini-card:nth-child(2):hover,
+    .sec-offer .also-grid-row-2 .mini-card:nth-child(2):hover {
+      transform: translateY(2px) rotate(0.5deg);
     }.sec-offer .mini-visual {
       padding: 20px 20px 12px;
       background: linear-gradient(180deg, #FAF9F7 0%, #FFFFFF 100%);
@@ -4573,25 +4574,15 @@ body > * {
     }
 
     /* Responsive */
-    @media (max-width: 900px) {.sec-offer .also-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }.sec-offer .also-grid .mini-card:nth-child(2) {
-        transform: none;
-      }.sec-offer .also-grid .mini-card:nth-child(3) {
-        grid-column: span 2;
-        max-width: 340px;
-        margin: 0 auto;
+    @media (max-width: 600px) {
+      .sec-offer .also-grid,
+      .sec-offer .also-grid-row-2 {
+        grid-template-columns: 1fr;
+        max-width: none;
       }
-    }
-
-    @media (max-width: 600px) {.sec-offer .also-grid {
-        grid-template-columns: 1fr;
-      }.sec-offer .also-grid .mini-card:nth-child(3) {
-        grid-column: span 1;
-        max-width: none;
-      }.sec-offer .also-grid-row-2 {
-        grid-template-columns: 1fr;
-        max-width: none;
+      .sec-offer .also-grid .mini-card:nth-child(2),
+      .sec-offer .also-grid-row-2 .mini-card:nth-child(2) {
+        transform: none;
       }
     }
         /* Premium animated cards - keep light theme */
@@ -9658,6 +9649,11 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
             </div>
           </div>
 
+        </div>
+
+        <!-- Row 2: 2 items -->
+        <div class="also-grid-row-2">
+
           <!-- Summer Shop Build -->
           <div class="mini-card">
             <span class="mini-bonus-number">+3</span>
@@ -9669,11 +9665,6 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
               <p class="mini-desc">We're building a hybrid shop together from scratch. Watch me decide, build yours alongside.</p>
             </div>
           </div>
-
-        </div>
-
-        <!-- Row 2: 2 items centered -->
-        <div class="also-grid-row-2">
 
           <!-- Private Podcast - Premium Animated -->
           <div class="mini-card premium-podcast-card">
@@ -10167,7 +10158,7 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
       <!-- Big Result Card -->
       <div class="big-result">
         <p class="result-label">Fast forward to today</p>
-        <img src="https://i.imgur.com/wX72xRi.png" alt="Real screenshot showing $1,000,000+ in Etsy sales" class="result-screenshot">
+        <img src="https://i.imgur.com/tnXuB4n.png" alt="Real screenshot showing $1,000,000+ in Etsy sales" class="result-screenshot">
         <p class="result-number">$1,148,214</p>
         <p class="result-subtitle">in sales on Etsy alone</p>
         <p class="result-note">Not because I'm special or talented - but because I followed the system even when individual listings flopped.</p>
@@ -11270,7 +11261,7 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
             <span class="mockup-dot mockup-dot-green"></span>
           </div>
           <div class="mockup-content" style="background: #1E1E26; padding: 16px;">
-            <svg viewBox="0 0 320 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <filter id="podcastGlow" x="-30%" y="-30%" width="160%" height="160%">
                   <feGaussianBlur stdDeviation="4" result="blur"/>
@@ -11372,7 +11363,21 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
               <polygon points="27,220 27,228 34,224" fill="#5A544C"/>
               <text x="52" y="220" font-family="Satoshi, sans-serif" font-size="10" fill="#8A8480" font-weight="500">Ep 53: Why I'm doubling down</text>
               <text x="52" y="232" font-family="Satoshi, sans-serif" font-size="9" fill="#5A544C">15 min · Dec 3</text>
-              
+
+              <!-- Episode 4 -->
+              <rect x="8" y="246" width="304" height="32" rx="8" fill="#2D2A26" opacity="0.4"/>
+              <circle cx="30" cy="262" r="10" fill="#3D3D47"/>
+              <polygon points="27,258 27,266 34,262" fill="#5A544C"/>
+              <text x="52" y="258" font-family="Satoshi, sans-serif" font-size="10" fill="#8A8480" font-weight="500">Ep 52: Q4 strategy that worked</text>
+              <text x="52" y="270" font-family="Satoshi, sans-serif" font-size="9" fill="#5A544C">11 min · Nov 26</text>
+
+              <!-- Episode 5 -->
+              <rect x="8" y="284" width="304" height="32" rx="8" fill="#2D2A26" opacity="0.3"/>
+              <circle cx="30" cy="300" r="10" fill="#3D3D47"/>
+              <polygon points="27,296 27,304 34,300" fill="#5A544C"/>
+              <text x="52" y="296" font-family="Satoshi, sans-serif" font-size="10" fill="#8A8480" font-weight="500">Ep 51: My biggest mistake this year</text>
+              <text x="52" y="308" font-family="Satoshi, sans-serif" font-size="9" fill="#5A544C">9 min · Nov 19</text>
+
               <!-- Sparkles -->
               <circle cx="58" cy="12" r="2" fill="#D4A853" opacity="0.6"/>
               <circle cx="262" cy="110" r="1.5" fill="#D4A853" opacity="0.5"/>

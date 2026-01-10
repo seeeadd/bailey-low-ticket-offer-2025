@@ -2491,130 +2491,107 @@ body > * {
     }
     /* Card 7: Personal Shop Audit - Video review graphic */
     .sec-offer .visual-shop-audit {
-      background: linear-gradient(135deg, #FDF5FF 0%, #F5E8FA 100%);
+      background: linear-gradient(135deg, #FFF8F0 0%, #FFF2E6 100%);
       position: relative;
     }
-    .sec-offer .shop-audit-graphic {
+    .sec-offer .audit-graphic {
       position: relative;
-      width: 140px;
-      height: 100px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
-    .sec-offer .audit-video-frame {
-      width: 120px;
-      height: 80px;
+    .sec-offer .audit-screen {
+      width: 80px;
+      height: 56px;
       background: white;
-      border-radius: 10px;
-      border: 2px solid #8B5A9B;
+      border-radius: 8px;
+      border: 2px solid #D4A853;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 4px 12px rgba(139, 90, 155, 0.15);
+      box-shadow: 0 4px 12px rgba(212, 168, 83, 0.2);
     }
-    .sec-offer .audit-video-header {
-      height: 14px;
-      background: linear-gradient(135deg, #8B5A9B 0%, #A66BB8 100%);
-      display: flex;
-      align-items: center;
-      padding-left: 6px;
-      gap: 4px;
-    }
-    .sec-offer .audit-header-dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-    }
-    .sec-offer .audit-header-dot.red { background: #E07A5F; }
-    .sec-offer .audit-header-dot.yellow { background: #F4D35E; }
-    .sec-offer .audit-header-dot.green { background: #4A9F6E; }
-    .sec-offer .audit-video-content {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: calc(100% - 14px);
-      background: linear-gradient(180deg, #FDFAFF 0%, #F8F0FC 100%);
-      position: relative;
-    }
-    .sec-offer .audit-shop-icon {
-      width: 32px;
-      height: 32px;
+    .sec-offer .audit-screen-header {
+      height: 10px;
       background: linear-gradient(135deg, #D4A853 0%, #E8C068 100%);
-      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      padding-left: 5px;
+      gap: 3px;
+    }
+    .sec-offer .audit-screen-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.6);
+    }
+    .sec-offer .audit-screen-content {
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 2px 6px rgba(212, 168, 83, 0.3);
+      height: calc(100% - 10px);
+      background: linear-gradient(180deg, #FFFBF5 0%, #FFF8EE 100%);
     }
-    .sec-offer .audit-shop-icon svg {
-      width: 18px;
-      height: 18px;
+    .sec-offer .audit-shop-mini {
+      width: 24px;
+      height: 24px;
+      background: linear-gradient(135deg, #1D6B6B 0%, #2A8A8A 100%);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sec-offer .audit-shop-mini svg {
+      width: 14px;
+      height: 14px;
       color: white;
     }
-    .sec-offer .audit-magnifier {
-      position: absolute;
-      bottom: -8px;
-      right: -12px;
-      width: 40px;
-      height: 40px;
-      background: white;
-      border-radius: 50%;
-      border: 2px solid #8B5A9B;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 3px 10px rgba(139, 90, 155, 0.2);
-    }
-    .sec-offer .audit-magnifier svg {
-      width: 20px;
-      height: 20px;
-      color: #8B5A9B;
-    }
-    .sec-offer .audit-checkmarks {
-      position: absolute;
-      top: 8px;
-      right: -20px;
+    .sec-offer .audit-checklist {
       display: flex;
       flex-direction: column;
       gap: 6px;
     }
-    .sec-offer .audit-check {
-      width: 18px;
-      height: 18px;
+    .sec-offer .audit-check-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .sec-offer .audit-check-circle {
+      width: 16px;
+      height: 16px;
       background: linear-gradient(135deg, #4A9F6E 0%, #5CB87A 100%);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       box-shadow: 0 2px 4px rgba(74, 159, 110, 0.25);
-      animation: auditCheckPulse 2s ease-in-out infinite;
     }
-    .sec-offer .audit-check:nth-child(2) {
-      animation-delay: 0.3s;
-    }
-    .sec-offer .audit-check:nth-child(3) {
-      animation-delay: 0.6s;
-    }
-    .sec-offer .audit-check svg {
-      width: 10px;
-      height: 10px;
+    .sec-offer .audit-check-circle svg {
+      width: 9px;
+      height: 9px;
       color: white;
     }
-    .sec-offer .audit-annual-badge {
+    .sec-offer .audit-check-line {
+      width: 32px;
+      height: 4px;
+      background: linear-gradient(90deg, #E8DDD0 0%, #D4C9BC 100%);
+      border-radius: 2px;
+    }
+    .sec-offer .audit-check-item:nth-child(2) .audit-check-line { width: 24px; }
+    .sec-offer .audit-check-item:nth-child(3) .audit-check-line { width: 28px; }
+    .sec-offer .audit-badge {
       position: absolute;
-      bottom: -6px;
+      bottom: -8px;
       left: 50%;
       transform: translateX(-50%);
       background: linear-gradient(135deg, #D4A853 0%, #E8C068 100%);
       color: white;
-      font-size: 8px;
+      font-size: 7px;
       font-weight: 700;
       padding: 3px 8px;
-      border-radius: 10px;
+      border-radius: 8px;
       letter-spacing: 0.05em;
       white-space: nowrap;
       box-shadow: 0 2px 6px rgba(212, 168, 83, 0.3);
-    }
-    @keyframes auditCheckPulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.1); opacity: 0.9; }
     }
     /* ═══════════════════════════════════════════════════════════════════════════
        ALSO INCLUDED SECTION - Warm Coral Theme (Distinct from Core Cards)
@@ -4117,9 +4094,9 @@ body > * {
       color: #C4614A;
       border: 1px solid rgba(224, 122, 95, 0.2);
     }.sec-offer .card-label--audit {
-      background: linear-gradient(135deg, #FDF5FF 0%, #F5E8FA 100%);
-      color: #8B5A9B;
-      border: 1px solid rgba(139, 90, 155, 0.2);
+      background: linear-gradient(135deg, #FFF8F0 0%, #FFF2E6 100%);
+      color: #B8923D;
+      border: 1px solid rgba(212, 168, 83, 0.25);
     }
     /* === CORNER NUMBERING - Editorial Touch === */
     .sec-offer .card-number {
@@ -8677,7 +8654,7 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
     </div>
     <div class="top-bar__deal">
       <div class="top-bar__deal-badge">
-        <span class="top-bar__deal-price">$27/mo</span>
+        <span class="top-bar__deal-price">$347/yr</span>
         <span class="top-bar__deal-was">$564</span>
       </div>
     </div>
@@ -8812,14 +8789,14 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
             <div class="price-block">
               <div class="price-col price-col--left">
                 <div class="price-amount">
-                  <span class="price-value">$27</span>
+                  <span class="price-value">$347</span>
                   <span class="price-period">/mo</span>
                 </div>
                 <span class="price-access">12 whole months access</span>
                 <span class="price-billing">Billed annually</span>
               </div>
               <div class="price-col price-col--right">
-                <span class="price-daily"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>$27/mo today when billed annually</span>
+                <span class="price-daily"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>$347/yr today when billed annually</span>
                 <div class="price-savings">
                   <span class="price-savings__text">Save $240/yr vs $47/monthly</span>
                 </div>
@@ -8865,7 +8842,7 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
             <img src="https://i.imgur.com/AFTdKOi.png" alt="Payment methods" class="offer-card__cards" style="display: block; max-width: 200px; margin: 12px auto 0; opacity: 0.8;">
 
             <div class="offer-card__microcopy">
-              <p class="microcopy-line">$27/mo annual · Instant access · Cancel anytime</p>
+              <p class="microcopy-line">$347/yr annual · Instant access · Cancel anytime</p>
               <p class="microcopy-urgency">Price goes up very soon, before January.</p>
             </div>
           </div>
@@ -9091,8 +9068,8 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
           </div>
         </article>
 
-        <!-- Card 6: My Traffic Loop — WIDE CARD (avoids orphan) -->
-        <article class="feature-card feature-card--wide">
+        <!-- Card 6: My Traffic Loop -->
+        <article class="feature-card">
           <span class="card-number">06</span>
           <div class="card-sparkles">
             <span class="sparkle"><svg viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg></span>
@@ -9118,23 +9095,23 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
           </div>
         </article>
 
-        <!-- Card 7: Personal Shop Audit — WIDE CARD (Annual member exclusive) -->
-        <article class="feature-card feature-card--wide">
+        <!-- Card 7: Personal Shop Audit -->
+        <article class="feature-card">
           <span class="card-number">07</span>
           <div class="card-sparkles">
             <span class="sparkle"><svg viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg></span>
             <span class="sparkle"><svg viewBox="0 0 24 24"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg></span>
           </div>
           <div class="card-visual-area visual-shop-audit">
-            <div class="shop-audit-graphic">
-              <div class="audit-video-frame">
-                <div class="audit-video-header">
-                  <span class="audit-header-dot red"></span>
-                  <span class="audit-header-dot yellow"></span>
-                  <span class="audit-header-dot green"></span>
+            <div class="audit-graphic">
+              <div class="audit-screen">
+                <div class="audit-screen-header">
+                  <span class="audit-screen-dot"></span>
+                  <span class="audit-screen-dot"></span>
+                  <span class="audit-screen-dot"></span>
                 </div>
-                <div class="audit-video-content">
-                  <div class="audit-shop-icon">
+                <div class="audit-screen-content">
+                  <div class="audit-shop-mini">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                       <polyline points="9 22 9 12 15 12 15 22"></polyline>
@@ -9142,40 +9119,40 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
                   </div>
                 </div>
               </div>
-              <div class="audit-magnifier">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
+              <div class="audit-checklist">
+                <div class="audit-check-item">
+                  <span class="audit-check-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </span>
+                  <span class="audit-check-line"></span>
+                </div>
+                <div class="audit-check-item">
+                  <span class="audit-check-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </span>
+                  <span class="audit-check-line"></span>
+                </div>
+                <div class="audit-check-item">
+                  <span class="audit-check-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </span>
+                  <span class="audit-check-line"></span>
+                </div>
               </div>
-              <div class="audit-checkmarks">
-                <span class="audit-check">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                </span>
-                <span class="audit-check">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                </span>
-                <span class="audit-check">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                </span>
-              </div>
-              <span class="audit-annual-badge">ANNUAL PERK</span>
+              <span class="audit-badge">ANNUAL PERK</span>
             </div>
           </div>
           <div class="card-content">
             <span class="card-label card-label--audit">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-                <line x1="16" y1="13" x2="8" y2="13"></line>
-                <line x1="16" y1="17" x2="8" y2="17"></line>
-                <polyline points="10 9 9 9 8 9"></polyline>
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
               </svg>
               Audit
             </span>
@@ -9915,14 +9892,14 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
       <div class="pricing-columns">
         <!-- Left column - dominant -->
         <div class="price-left">
-          <div class="price-main">$27<span class="price-unit">/mo</span></div>
+          <div class="price-main">$347<span class="price-unit">/mo</span></div>
           <div class="price-access">12 whole months access</div>
           <div class="price-billing">Billed annually</div>
         </div>
 
         <!-- Right column - supporting stack -->
         <div class="price-right">
-          <div class="price-daily"><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>$27/mo today when billed annually</div>
+          <div class="price-daily"><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>$347/yr today when billed annually</div>
           <div class="price-savings">Save $240/yr vs $47/monthly</div>
         </div>
       </div>
@@ -10975,7 +10952,7 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
           <div class="pricing-divider"></div>
 
           <div class="pricing-breakdown">
-            <div class="breakdown-daily"><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>$27/mo today when billed annually</div>
+            <div class="breakdown-daily"><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>$347/yr today when billed annually</div>
             <div class="breakdown-savings">
               <span>Save $240/yr vs $47/monthly</span>
             </div>
@@ -11261,7 +11238,7 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
          class="cta-button">
         <span class="button-shine"></span>
         <span class="cta-label">Join AI Design & Grow for</span>
-        <span class="cta-price">$27/mo</span>
+        <span class="cta-price">$347/yr</span>
       </a>
     </div>
 

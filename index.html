@@ -6781,6 +6781,10 @@ body > * {
     }.sec-stack .card-badge-core {
       background: linear-gradient(135deg, #E8917A 0%, #E07A5F 100%);
       color: white;
+    }.sec-stack .card-badge-annual {
+      background: linear-gradient(135deg, #D4A853 0%, #C9982E 100%);
+      color: white;
+      box-shadow: 0 2px 8px rgba(212, 168, 83, 0.35);
     }.sec-stack .card-badge-paths {
       background: linear-gradient(135deg, rgba(212, 168, 83, 0.15) 0%, rgba(212, 168, 83, 0.35) 100%);
       border: 1px solid rgba(212, 168, 83, 0.4);
@@ -7113,6 +7117,216 @@ body > * {
       border-radius: 8px;
       width: 100%;
       height: auto;
+    }
+    /* ═══════════════════════════════════════════════════════════════════════════
+       AUDIT CARD GRAPHIC - Large version for offer cards section
+       ═══════════════════════════════════════════════════════════════════════════ */
+    .sec-stack .audit-mockup-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 280px;
+    }
+    .sec-stack .audit-card-graphic {
+      position: relative;
+      width: 280px;
+      height: 200px;
+      z-index: 2;
+    }
+    .sec-stack .audit-browser-lg {
+      position: absolute;
+      top: 10px;
+      left: 0;
+      width: 200px;
+      height: 150px;
+      background: white;
+      border-radius: 12px;
+      box-shadow:
+        0 12px 40px rgba(45, 42, 38, 0.15),
+        0 4px 12px rgba(45, 42, 38, 0.08);
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+    .sec-stack .audit-browser-bar-lg {
+      height: 24px;
+      background: linear-gradient(180deg, #FAFAFA 0%, #F0F0F0 100%);
+      border-bottom: 1px solid #E5E5E5;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      gap: 5px;
+    }
+    .sec-stack .audit-dot-lg {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+    .sec-stack .audit-dot-lg.red { background: #FF6058; }
+    .sec-stack .audit-dot-lg.yellow { background: #FFBD2E; }
+    .sec-stack .audit-dot-lg.green { background: #28CA42; }
+    .sec-stack .audit-url-lg {
+      flex: 1;
+      height: 12px;
+      background: #E8E8E8;
+      border-radius: 6px;
+      margin-left: 12px;
+    }
+    .sec-stack .audit-shop-preview-lg {
+      padding: 12px;
+      background: linear-gradient(180deg, #FEFEFE 0%, #FAFAF8 100%);
+      height: calc(100% - 24px);
+    }
+    .sec-stack .audit-shop-header-lg {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .sec-stack .audit-shop-logo-lg {
+      width: 24px;
+      height: 24px;
+      background: linear-gradient(135deg, #1D6B6B 0%, #2A9D9D 100%);
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sec-stack .audit-shop-logo-lg svg {
+      width: 14px;
+      height: 14px;
+      color: white;
+    }
+    .sec-stack .audit-shop-name-lg {
+      flex: 1;
+      height: 10px;
+      background: linear-gradient(90deg, #2D2A26 0%, #8A847A 100%);
+      border-radius: 5px;
+      max-width: 70px;
+    }
+    .sec-stack .audit-shop-stars {
+      font-size: 8px;
+      color: #D4A853;
+      letter-spacing: 1px;
+    }
+    .sec-stack .audit-products-lg {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+    }
+    .sec-stack .audit-product-lg {
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, #F5F0EB 0%, #EDE5DC 100%);
+      border-radius: 4px;
+      border: 1px solid #E8E0D5;
+    }
+    /* Floating feedback cards */
+    .sec-stack .audit-feedback-card {
+      position: absolute;
+      background: white;
+      border-radius: 8px;
+      padding: 6px 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      box-shadow:
+        0 4px 16px rgba(0,0,0,0.1),
+        0 2px 4px rgba(0,0,0,0.05);
+      z-index: 5;
+    }
+    .sec-stack .feedback-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+    }
+    .sec-stack .feedback-icon.delete {
+      background: linear-gradient(135deg, #E53935 0%, #C62828 100%);
+      color: white;
+    }
+    .sec-stack .feedback-icon.save {
+      background: linear-gradient(135deg, #4A9F6E 0%, #388E5C 100%);
+      color: white;
+    }
+    .sec-stack .feedback-icon.gold {
+      background: linear-gradient(135deg, #D4A853 0%, #C9982E 100%);
+      color: white;
+    }
+    .sec-stack .feedback-text {
+      color: #2D2A26;
+    }
+    .sec-stack .audit-feedback-1 {
+      top: 45px;
+      right: 30px;
+      animation: auditFeedbackFloat 3s ease-in-out infinite;
+    }
+    .sec-stack .audit-feedback-2 {
+      top: 90px;
+      right: 10px;
+      animation: auditFeedbackFloat 3s ease-in-out infinite 0.5s;
+    }
+    .sec-stack .audit-feedback-3 {
+      top: 135px;
+      right: 45px;
+      animation: auditFeedbackFloat 3s ease-in-out infinite 1s;
+    }
+    /* Bailey video bubble */
+    .sec-stack .audit-video-bubble {
+      position: absolute;
+      bottom: 5px;
+      left: 160px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      border-radius: 24px;
+      padding: 6px 12px 6px 6px;
+      box-shadow:
+        0 6px 20px rgba(224, 122, 95, 0.25),
+        0 2px 6px rgba(0,0,0,0.08);
+      border: 2px solid #E07A5F;
+    }
+    .sec-stack .audit-bailey-avatar {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, #E07A5F 0%, #C96B52 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 14px;
+      font-family: 'OGG', Georgia, serif;
+    }
+    .sec-stack .audit-rec-indicator {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      color: #E53935;
+      letter-spacing: 0.05em;
+    }
+    .sec-stack .rec-dot {
+      width: 8px;
+      height: 8px;
+      background: #E53935;
+      border-radius: 50%;
+      animation: recPulse 1.2s ease-in-out infinite;
+    }
+    @keyframes auditFeedbackFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+    @keyframes recPulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
     }
         /* Stars below card images */
     .card-image .halo-stars {
@@ -10624,6 +10838,97 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
 
   <!-- OFFER CARDS CONTAINER -->
   <div class="offer-cards-container">
+
+    <!-- CARD 0: ANNUAL BONUS - Personal Shop Audit -->
+    <article class="offer-card" data-type="annual">
+      <div class="card-content">
+        <div class="card-header">
+          <span class="card-badge card-badge-annual">ANNUAL BONUS</span>
+          <h3 class="card-title">Personal Shop Audit</h3>
+        </div>
+        <p class="card-description">I open these up once a month and personally record a video walking through your entire shop. Same eyes that built a $1M Etsy business - now looking at yours.</p>
+        <ul class="card-features">
+          <li class="feature-item">
+            <span class="feature-number">01</span>
+            <span class="feature-text"><strong>The listings I'd delete</strong> because they're dragging your shop down and you don't even realize it</span>
+          </li>
+          <li class="feature-item">
+            <span class="feature-number">02</span>
+            <span class="feature-text"><strong>The ones worth saving</strong> and exactly what I'd change to make them work harder</span>
+          </li>
+          <li class="feature-item">
+            <span class="feature-number">03</span>
+            <span class="feature-text"><strong>What I see that you can't</strong> - after 4 years of running my own shop, I spot things in seconds that take most sellers months to figure out</span>
+          </li>
+        </ul>
+        <div class="use-it-when">
+          <span class="use-it-label">Use it when:</span>
+          <span class="use-it-text">you want someone who's actually done it to tell you what's wrong - not guess.</span>
+        </div>
+        <p class="card-outcome">Annual members get one to use whenever you're ready within the year.</p>
+        <div class="card-stat">
+          <span class="stat-number">my eyes</span>
+          <span class="stat-label">on your actual shop</span>
+        </div>
+      </div>
+      <div class="card-mockup-zone">
+        <div class="card-image audit-mockup-image">
+          <div class="audit-card-graphic">
+            <!-- Browser window showing shop -->
+            <div class="audit-browser-lg">
+              <div class="audit-browser-bar-lg">
+                <span class="audit-dot-lg red"></span>
+                <span class="audit-dot-lg yellow"></span>
+                <span class="audit-dot-lg green"></span>
+                <span class="audit-url-lg"></span>
+              </div>
+              <div class="audit-shop-preview-lg">
+                <div class="audit-shop-header-lg">
+                  <div class="audit-shop-logo-lg">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    </svg>
+                  </div>
+                  <div class="audit-shop-name-lg"></div>
+                  <div class="audit-shop-stars">★★★★★</div>
+                </div>
+                <div class="audit-products-lg">
+                  <div class="audit-product-lg"></div>
+                  <div class="audit-product-lg"></div>
+                  <div class="audit-product-lg"></div>
+                  <div class="audit-product-lg"></div>
+                  <div class="audit-product-lg"></div>
+                  <div class="audit-product-lg"></div>
+                </div>
+              </div>
+            </div>
+            <!-- Floating feedback cards -->
+            <div class="audit-feedback-card audit-feedback-1">
+              <span class="feedback-icon delete">✕</span>
+              <span class="feedback-text">Delete this</span>
+            </div>
+            <div class="audit-feedback-card audit-feedback-2">
+              <span class="feedback-icon save">✓</span>
+              <span class="feedback-text">Fix title</span>
+            </div>
+            <div class="audit-feedback-card audit-feedback-3">
+              <span class="feedback-icon gold">★</span>
+              <span class="feedback-text">Winner!</span>
+            </div>
+            <!-- Bailey video bubble -->
+            <div class="audit-video-bubble">
+              <div class="audit-bailey-avatar">B</div>
+              <div class="audit-rec-indicator">
+                <span class="rec-dot"></span>
+                REC
+              </div>
+            </div>
+          </div>
+          <span class="halo-stars">✦ ✦ ✦</span>
+        </div>
+        <div class="mockup-annotation-box">"I'll tell you exactly what I'd change"</div>
+      </div>
+    </article>
 
     <!-- CARD 1: CORE - My $10K Profit Formula -->
     <article class="offer-card" data-type="core">

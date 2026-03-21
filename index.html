@@ -116,9 +116,11 @@ body > script {
 /* Contain decorative blobs so they don't extend the page */
 .sec-close,
 .sec-faq,
-.sec-testimonials,
-.sec-stack {
+.sec-testimonials {
   overflow: hidden;
+}
+.sec-stack {
+  overflow: clip;
 }
 
 .sec {
@@ -879,6 +881,12 @@ body > * {
       margin-bottom: 16px;
       position: relative;
       border-bottom: 1px solid rgba(232, 226, 217, 0.5);
+    }
+    .sec-hero .price-block.price-block--dual {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      border-bottom: none;
     }.sec-hero .price-col {
       flex: 1;
       display: flex;
@@ -959,12 +967,14 @@ body > * {
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      padding: 4px 10px;
-      background: linear-gradient(135deg, rgba(224, 122, 95, 0.12) 0%, rgba(224, 122, 95, 0.06) 100%);
-      border: 1px solid rgba(224, 122, 95, 0.25);
+      padding: 5px 14px;
+      background: rgba(224, 122, 95, 0.08);
+      border: 1px solid rgba(224, 122, 95, 0.2);
       border-radius: 100px;
-      margin-top: 2px;
+      margin-top: 6px;
       width: fit-content;
+      -webkit-appearance: none;
+      appearance: none;
     }.sec-hero .price-savings__text {
       font-size: 11px;
       font-weight: 700;
@@ -984,17 +994,104 @@ body > * {
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 16px 14px;
-      border-radius: 14px;
+      padding: 20px 16px;
+      border-radius: 16px;
       border: 1.5px solid rgba(232, 226, 217, 0.5);
-      background: rgba(255,255,255,.4);
+      background: #fff;
       position: relative;
       transition: all .25s;
+      -webkit-appearance: none;
+      appearance: none;
+      overflow: visible;
+      outline: none;
+      box-sizing: border-box;
     }
     .price-option--featured {
-      border-color: var(--accent-coral);
-      background: rgba(224, 122, 95, 0.04);
-      box-shadow: 0 2px 16px rgba(224, 122, 95, 0.08);
+      border: 2px solid var(--accent-coral) !important;
+      background: #FFF8F5;
+      box-shadow: 0 4px 20px rgba(224, 122, 95, 0.12);
+    }
+    /* Override giant prices inside ALL dual pricing cards */
+    /* Force dual pricing cards to use correct sizes everywhere */
+    .price-block--dual .price-value,
+    .pricing-columns--dual .price-main,
+    .pricing-breakdown--dual .price-value,
+    .sec-story #story-cta .pricing-columns--dual .price-main,
+    .sec-stack .pricing-breakdown--dual .price-value {
+      font-size: 32px !important;
+      font-weight: 630 !important;
+      color: #1A1816 !important;
+      background: none !important;
+      -webkit-background-clip: unset !important;
+      -webkit-text-fill-color: #1A1816 !important;
+      background-clip: unset !important;
+    }
+    .price-block--dual .price-value--sm,
+    .pricing-columns--dual .price-main--sm,
+    .pricing-breakdown--dual .price-value--sm,
+    .sec-story #story-cta .pricing-columns--dual .price-main--sm,
+    .sec-stack .pricing-breakdown--dual .price-value--sm {
+      font-size: 26px !important;
+      color: var(--accent-coral) !important;
+      -webkit-text-fill-color: var(--accent-coral) !important;
+    }
+    .price-block--dual .price-period,
+    .pricing-columns--dual .price-unit {
+      font-size: 14px !important;
+    }
+    .price-block--dual .price-access,
+    .pricing-columns--dual .price-access {
+      font-size: 12px !important;
+      color: #666 !important;
+    }
+    .price-block--dual .price-billing,
+    .pricing-columns--dual .price-billing {
+      font-size: 11px !important;
+      color: #aaa !important;
+    }
+    .pricing-breakdown--dual .price-value::after,
+    .price-block--dual .price-value::after,
+    .pricing-columns--dual .price-main::after {
+      display: none !important;
+    }
+    .pricing-columns--dual .price-savings,
+    .price-block--dual .price-savings,
+    .pricing-breakdown--dual .price-savings {
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      color: var(--accent-coral) !important;
+      background: rgba(224, 122, 95, 0.08) !important;
+      border: 1px solid rgba(224, 122, 95, 0.2) !important;
+      border-radius: 100px !important;
+      padding: 4px 12px !important;
+      margin-top: 4px !important;
+      -webkit-appearance: none !important;
+      appearance: none !important;
+      width: fit-content !important;
+      display: inline-block !important;
+    }
+    /* Force dual layout to be grid not flex */
+    .sec-story .pricing-columns--dual,
+    .sec-story #story-cta .pricing-columns--dual,
+    .sec-stack .pricing-breakdown--dual,
+    .pricing-breakdown--dual {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 12px !important;
+    }
+    .sec-story .pricing-columns--dual .price-left,
+    .sec-stack .pricing-main {
+      display: none !important;
+    }
+    .sec-stack .pricing-divider {
+      display: none !important;
+    }
+    .sec-stack .cta-pricing {
+      display: block !important;
+    }
+    .sec-stack .pricing-breakdown--dual {
+      max-width: 480px !important;
+      margin: 0 auto !important;
     }
     .price-option__badge {
       position: absolute;
@@ -1012,9 +1109,8 @@ body > * {
       white-space: nowrap;
     }
     .price-option--monthly {
-      opacity: 0.85;
-      border-color: rgba(232, 226, 217, 0.4);
-      background: rgba(255,255,255,.3);
+      border: 1.5px solid rgba(232, 226, 217, 0.6);
+      background: #fff;
       justify-content: center;
     }
     .price-option--monthly .price-value,
@@ -7968,12 +8064,23 @@ body > * {
         grid-template-columns: 1fr;
         gap: 20px;
         padding: 32px;
+        overflow: visible;
       }.sec-stack .card-mockup-zone {
         order: -1;
+      }.sec-stack .card-description {
+        max-width: 100%;
       }
     }
 
     @media (max-width: 768px) {.sec-stack .offer-headline { font-size: 36px; }.sec-stack .card-title { font-size: 22px; }
+      .sec-stack .offer-stack-section { padding-left: 16px !important; padding-right: 16px !important; }
+      .sec-stack .offer-card { padding: 24px 16px !important; box-sizing: border-box !important; max-width: 100% !important; overflow: visible !important; word-wrap: break-word !important; overflow-wrap: break-word !important; min-width: 0 !important; }
+      .sec-stack .card-content { max-width: 100% !important; overflow: visible !important; min-width: 0 !important; }
+      .sec-stack .card-description { font-size: 14px !important; max-width: 100% !important; }
+      .sec-stack .feature-item { min-width: 0 !important; }
+      .sec-stack .feature-text { font-size: 14px !important; min-width: 0 !important; overflow-wrap: break-word !important; word-break: break-word !important; }
+      .sec-stack .use-it-when { max-width: 100% !important; overflow-wrap: break-word !important; }
+      .sec-stack .mockup-annotation-box { font-size: 13px !important; }
     }
 
     @media (max-width: 600px) {.sec-stack .offer-stack-section {
@@ -11547,32 +11654,18 @@ body > * {
       <div class="cta-content">
         <!-- Pricing Area -->
         <div class="cta-pricing">
-          <div class="pricing-main">
-            <div class="pricing-amount">
-              <span class="price-currency">$</span>
-              <span class="price-value">327</span>
-              <span class="price-period">/yr</span>
-            </div>
-            <div class="pricing-access">
-              <span>12 whole months access</span>
-            </div>
-            <div class="pricing-billing">
-              <span>Billed annually</span>
-            </div>
-          </div>
-
-          <div class="pricing-divider"></div>
-
-          <div class="pricing-breakdown pricing-breakdown--dual">
-            <div class="price-option price-option--annual price-option--featured price-option--dark">
+          <div class="pricing-breakdown pricing-breakdown--dual" style="width:100%">
+            <div class="price-option price-option--annual price-option--featured">
               <span class="price-option__badge">Best Value</span>
-              <div class="breakdown-daily">$327/yr</div>
-              <div class="breakdown-sub">12 months · Billed annually</div>
-              <div class="breakdown-savings"><span>Save $357/yr</span></div>
+              <div class="price-amount"><span class="price-value">$327</span><span class="price-period">/yr</span></div>
+              <span class="price-access">12 months access</span>
+              <span class="price-billing">Billed annually</span>
+              <div class="price-savings"><span class="price-savings__text">Save $357/yr</span></div>
             </div>
-            <div class="price-option price-option--monthly price-option--dark">
-              <div class="breakdown-daily">$57/mo</div>
-              <div class="breakdown-sub">Month to month</div>
+            <div class="price-option price-option--monthly">
+              <div class="price-amount"><span class="price-value price-value--sm">$57</span><span class="price-period">/mo</span></div>
+              <span class="price-access">Month to month</span>
+              <span class="price-billing">Billed monthly</span>
             </div>
           </div>
         </div>
@@ -12221,6 +12314,9 @@ document.querySelector('.offer-header')?.classList.add('visible');
   box-shadow:0 20px 60px rgba(0,0,0,.2);
   animation:popIn .3s cubic-bezier(.34,1.56,.64,1);
   text-align:center;
+  max-height:calc(100vh - 40px);
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
 }
 @keyframes popIn{0%{transform:scale(.9);opacity:0}100%{transform:scale(1);opacity:1}}
 .pay-popup-close{
@@ -12292,8 +12388,11 @@ document.querySelector('.offer-header')?.classList.add('visible');
 
 @media(max-width:500px){
   .pay-popup-options{grid-template-columns:1fr}
-  .pay-popup{padding:24px 20px}
+  .pay-popup{padding:24px 16px;margin:auto}
   .pay-price-big{font-size:28px}
+  .pay-popup-trust{flex-wrap:wrap;gap:4px;text-align:center;justify-content:center}
+  .pay-popup-trust img{height:20px!important;width:auto;max-width:100%}
+  .pay-popup-trust span{width:100%;text-align:center;font-size:10px}
 }
 </style>
 

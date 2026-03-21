@@ -12177,5 +12177,170 @@ document.querySelector('.offer-header')?.classList.add('visible');
 
 </script>
 
+<!-- ═══ PAYMENT POPUP ═══ -->
+<div class="pay-popup-overlay" id="payPopup" onclick="if(event.target===this)closePayPopup()">
+  <div class="pay-popup">
+    <button class="pay-popup-close" onclick="closePayPopup()">&times;</button>
+    <h3 class="pay-popup-title">Choose Your Plan</h3>
+    <p class="pay-popup-sub">Pick what works best for you.</p>
+    <div class="pay-popup-options">
+      <a href="https://digitallypurposed.thrivecart.com/ai-design-grow-experience-annual-only/" target="_blank" rel="noopener noreferrer" class="pay-option pay-option--annual">
+        <span class="pay-option-badge">Best Value</span>
+        <div class="pay-option-price"><span class="pay-price-big">$327</span><span class="pay-price-unit">/yr</span></div>
+        <div class="pay-option-detail">12 months access</div>
+        <div class="pay-option-billing">Billed annually</div>
+        <div class="pay-option-save">Save $357/yr vs monthly</div>
+        <span class="pay-option-btn">Get Annual Access →</span>
+      </a>
+      <a href="https://www.skool.com/etsydesignclub/about" target="_blank" rel="noopener noreferrer" class="pay-option pay-option--monthly">
+        <div class="pay-option-price"><span class="pay-price-big pay-price-sm">$57</span><span class="pay-price-unit">/mo</span></div>
+        <div class="pay-option-detail">Month to month</div>
+        <div class="pay-option-billing">Billed monthly</div>
+        <span class="pay-option-btn pay-option-btn--secondary">Get Monthly Access →</span>
+      </a>
+    </div>
+    <div class="pay-popup-trust">
+      <img src="https://i.imgur.com/881hYo3.png" alt="Payment methods" style="height:24px;opacity:.6">
+      <span>Secure checkout · Instant access · Cancel anytime</span>
+    </div>
+  </div>
+</div>
+
+<style>
+/* ═══ PAYMENT POPUP ═══ */
+.pay-popup-overlay{
+  display:none;position:fixed;inset:0;z-index:99999;
+  background:rgba(26,24,22,.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  align-items:center;justify-content:center;padding:20px;
+}
+.pay-popup-overlay.active{display:flex}
+.pay-popup{
+  background:#FAF8F5;border-radius:20px;
+  max-width:520px;width:100%;padding:32px 28px;
+  position:relative;
+  box-shadow:0 20px 60px rgba(0,0,0,.2);
+  animation:popIn .3s cubic-bezier(.34,1.56,.64,1);
+  text-align:center;
+}
+@keyframes popIn{0%{transform:scale(.9);opacity:0}100%{transform:scale(1);opacity:1}}
+.pay-popup-close{
+  position:absolute;top:12px;right:16px;
+  background:none;border:none;font-size:28px;color:#999;cursor:pointer;
+  width:36px;height:36px;display:flex;align-items:center;justify-content:center;
+  border-radius:50%;transition:all .2s;
+}
+.pay-popup-close:hover{background:rgba(0,0,0,.05);color:#333}
+.pay-popup-title{
+  font-family:'OGG',Georgia,serif;font-size:clamp(22px,3.5vw,28px);
+  color:#1A1816;margin-bottom:4px;
+}
+.pay-popup-sub{font-size:14px;color:#888;margin-bottom:20px}
+.pay-popup-options{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.pay-option{
+  display:flex;flex-direction:column;align-items:center;
+  padding:20px 16px;border-radius:14px;
+  border:1.5px solid rgba(0,0,0,.08);
+  text-decoration:none;color:#1A1816;
+  transition:all .25s;position:relative;cursor:pointer;
+  background:#fff;
+}
+.pay-option:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.pay-option--annual{border-color:rgba(224,122,95,.4);box-shadow:0 4px 16px rgba(224,122,95,.12)}
+.pay-option--annual:hover{box-shadow:0 8px 28px rgba(224,122,95,.2)}
+.pay-option-badge{
+  position:absolute;top:-10px;left:50%;transform:translateX(-50%);
+  background:linear-gradient(135deg,#D4A853,#C4943D);color:#fff;
+  font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;
+  padding:3px 12px;border-radius:20px;white-space:nowrap;
+}
+.pay-option-price{display:flex;align-items:baseline;gap:2px;margin:8px 0 6px}
+.pay-price-big{font-family:'OGG',Georgia,serif;font-size:36px;font-weight:400;color:#1A1816}
+.pay-price-sm{font-size:28px;color:#888}
+.pay-price-unit{font-size:16px;color:#888;font-weight:500}
+.pay-option-detail{font-size:13px;color:#666;margin-bottom:2px}
+.pay-option-billing{font-size:12px;color:#aaa;margin-bottom:8px}
+.pay-option-save{
+  font-size:11px;font-weight:700;color:var(--coral);
+  background:rgba(224,122,95,.08);padding:4px 12px;border-radius:20px;
+  margin-bottom:12px;
+}
+.pay-option-btn{
+  display:block;width:100%;padding:10px 0;
+  background:linear-gradient(135deg,#E07A5F,#C4643D)!important;
+  color:#fff!important;font-size:13px;font-weight:700;
+  border-radius:8px;text-align:center;letter-spacing:.02em;
+  transition:all .2s;text-decoration:none;
+  margin-top:auto;
+}
+.pay-option:hover .pay-option-btn{box-shadow:0 4px 12px rgba(224,122,95,.3)}
+.pay-option-btn--secondary{
+  background:none;color:#1A1816;
+  border:1.5px solid rgba(0,0,0,.12);
+}
+.pay-option--monthly:hover .pay-option-btn--secondary{
+  background:#1A1816;color:#fff;border-color:#1A1816;
+}
+.pay-popup-trust{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  font-size:11px;color:#aaa;
+}
+/* On-page pricing card hover states */
+.price-option--annual{cursor:pointer;transition:all .25s}
+.price-option--annual:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(224,122,95,.15)}
+.price-option--monthly{cursor:pointer;transition:all .25s}
+.price-option--monthly:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.08)}
+
+@media(max-width:500px){
+  .pay-popup-options{grid-template-columns:1fr}
+  .pay-popup{padding:24px 20px}
+  .pay-price-big{font-size:28px}
+}
+</style>
+
+<script>
+/* ═══ Payment Popup ═══ */
+function openPayPopup(e){
+  if(e){e.preventDefault();e.stopPropagation()}
+  document.getElementById('payPopup').classList.add('active');
+  document.body.style.overflow='hidden';
+}
+function closePayPopup(){
+  document.getElementById('payPopup').classList.remove('active');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closePayPopup()});
+
+/* Intercept all CTA buttons */
+document.addEventListener('DOMContentLoaded',function(){
+  /* CTA buttons - override href to open popup instead */
+  document.querySelectorAll('.cta-button, .top-bar__cta').forEach(function(btn){
+    btn.setAttribute('href','javascript:void(0)');
+    btn.setAttribute('onclick','openPayPopup(event)');
+    btn.removeAttribute('target');
+  });
+
+  /* Make pricing cards clickable */
+  document.querySelectorAll('.price-option--annual, .price-option--featured').forEach(function(card){
+    card.style.cursor='pointer';
+    card.addEventListener('click',function(){
+      window.open('https://digitallypurposed.thrivecart.com/ai-design-grow-experience-annual-only/','_blank');
+    });
+  });
+  document.querySelectorAll('.price-option--monthly').forEach(function(card){
+    card.style.cursor='pointer';
+    card.addEventListener('click',function(){
+      window.open('https://www.skool.com/etsydesignclub/about','_blank');
+    });
+  });
+
+  /* Make top bar price pill clickable */
+  var dealBadge=document.querySelector('.top-bar__deal-badge');
+  if(dealBadge){
+    dealBadge.style.cursor='pointer';
+    dealBadge.addEventListener('click',function(e){openPayPopup(e)});
+  }
+});
+</script>
+
 </body>
 </html>

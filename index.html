@@ -12339,6 +12339,12 @@ document.addEventListener('DOMContentLoaded',function(){
     dealBadge.style.cursor='pointer';
     dealBadge.addEventListener('click',function(e){openPayPopup(e)});
   }
+
+  /* Make product images clickable to open popup */
+  document.querySelectorAll('.card-visual-img, .mini-visual-img, .mockup-phone, .mockup-tablet, .mockup-imac, .sec-offer img, .sec-hero img').forEach(function(img){
+    img.style.cursor='pointer';
+    img.addEventListener('click',function(e){openPayPopup(e)});
+  });
 });
 </script>
 

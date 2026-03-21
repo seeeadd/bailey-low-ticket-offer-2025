@@ -83,15 +83,22 @@ body {
   font-weight: 440;
   line-height: 1.6;
   color: #2D2A26;
-  background: #1F1D1A;
+  background: #FAF5EF;
   overflow-x: hidden;
   overflow-x: clip;
   max-width: 100vw;
   position: relative;
   overscroll-behavior-x: none;
+  padding-top: 44px;
 }
 
 /* Ensure page ends at footer - no extra scroll */
+html, body {
+  overscroll-behavior-y: none !important;
+}
+body::after, body::before {
+  display: none !important;
+}
 .sec-footer {
   margin-bottom: 0 !important;
   padding-bottom: 0 !important;
@@ -106,12 +113,22 @@ body > script {
   display: none !important;
 }
 
+/* Contain decorative blobs so they don't extend the page */
+.sec-close,
+.sec-faq,
+.sec-testimonials,
+.sec-stack {
+  overflow: hidden;
+}
+
 .sec {
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
-  overflow-y: visible;
+  overflow: hidden;
   box-sizing: border-box;
+}
+.sec-hero {
+  overflow: visible;
 }
 
 /* Ensure all direct body children don't overflow */
@@ -124,7 +141,6 @@ body > * {
 @media (max-width: 768px) {
   html, body {
     overflow-x: clip !important;
-    overflow-y: auto !important;
     max-width: 100vw !important;
     width: 100% !important;
     overscroll-behavior-x: none !important;
@@ -187,7 +203,7 @@ body > * {
        ═══════════════════════════════════════════════════════════════════════════ */
     .sec-hero .top-bar {
       position: fixed;
-      top: 16px;
+      top: 0;
       left: 50%;
       transform: translateX(-50%);
       width: calc(100% - 48px);
@@ -226,27 +242,37 @@ body > * {
     }.sec-hero .top-bar__deal-badge {
       display: flex;
       align-items: center;
-      gap: 6px;
-      padding: 6px 14px;
-      background: linear-gradient(135deg, #FFF9F0 0%, #FFF5EB 100%);
-      border: 1px solid rgba(212, 168, 83, 0.25);
+      gap: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #FFF9F0, #FFF5EB);
+      border: 1.5px solid rgba(224, 122, 95, 0.25);
       border-radius: 100px;
       font-weight: 600;
       font-size: 14px;
       color: var(--text-primary);
       letter-spacing: 0.01em;
+      overflow: hidden;
     }.sec-hero .top-bar__deal-badge::before {
-      content: '✦';
-      color: var(--accent-gold);
-      font-size: 10px;
+      display: none;
     }.sec-hero .top-bar__deal-price {
+      font-weight: 800;
+      font-size: 15px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent-coral), var(--accent-coral-dark));
+      padding: 8px 16px;
+      border-radius: 100px 0 0 100px;
+      letter-spacing: .02em;
+    }.sec-hero .top-bar__deal-sep {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      padding: 8px 6px;
+      opacity: 0.6;
+    }.sec-hero .top-bar__deal-monthly {
+      font-size: 14px;
       font-weight: 700;
       color: var(--accent-coral);
-    }.sec-hero .top-bar__deal-was {
-      font-size: 13px;
-      color: var(--text-muted);
-      text-decoration: line-through;
-      margin-left: 6px;
+      padding: 8px 16px 8px 4px;
     }
     /* Premium CTA Button - THE button, .sec-hero not A button */
     .sec-hero .top-bar__cta {
@@ -305,33 +331,44 @@ body > * {
     }
 
     @media (max-width: 768px) {.sec-hero .top-bar {
-        top: 0;
+        top: 0 !important;
         bottom: auto;
-        left: 0;
-        right: 0;
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        padding: 12px 20px;
-        flex-direction: row;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        padding: 10px 16px 10px !important;
+        flex-direction: row !important;
+        align-items: center !important;
         justify-content: space-between;
-        gap: 8px;
+        gap: 8px !important;
         transform: none;
         border-radius: 0;
-        background: rgba(255, 252, 247, 0.95);
-        backdrop-filter: blur(12px);
+        background: linear-gradient(135deg,#FAF8F5,#F5F0EB);
+        backdrop-filter: none;
         box-sizing: border-box;
-        overflow: hidden;
-      }.sec-hero .top-bar.visible { transform: none; }.sec-hero .top-bar__logo { display: flex; flex-shrink: 0; }.sec-hero .top-bar__logo img { height: 36px; }.sec-hero .top-bar__deal { display: none; }.sec-hero .top-bar__cta {
+        overflow: visible;
+        border: none;
+        border-bottom: 1px solid rgba(0,0,0,.06);
+        box-shadow: 0 2px 8px rgba(0,0,0,.05);
+      }.sec-hero .top-bar.visible { transform: none; }
+      .sec-hero .top-bar__logo { flex-shrink:0; }
+      .sec-hero .top-bar__logo img { height:28px !important; }
+      .sec-hero .top-bar__deal { display: flex !important;justify-content:center;order:0;position:static !important;transform:none !important;left:auto !important; }
+      .sec-hero .top-bar__deal-badge { display: none !important; }
+      .sec-hero .top-bar__cta {
         width: auto;
-        height: 40px;
-        padding: 0 14px;
-        font-size: 11px;
+        height: 32px;
+        padding: 0 16px;
+        font-size: 10px;
         letter-spacing: 0.02em;
-        border-radius: 10px;
+        border-radius: 8px;
         white-space: nowrap;
         flex-shrink: 0;
-        margin-right: 4px;
+        order: 1;
+        position: relative !important;
       }
     }
 
@@ -454,14 +491,14 @@ body > * {
     }.sec-hero .hero-content {
       position: relative;
       z-index: 10;
-      padding: 120px 0 60px;
+      padding: 80px 0 60px;
     }.sec-hero .hero-container {
       max-width: 1400px;
       margin: 0 auto;
       padding: 0 48px;
     }
 
-    @media (max-width: 768px) {.sec-hero .hero-content { padding: 100px 0 100px; }.sec-hero .hero-container { padding: 0 20px; }
+    @media (max-width: 768px) {.sec-hero .hero-content { padding: 70px 0 100px; }.sec-hero .hero-container { padding: 0 20px; }
     }
     /* ═══════════════════════════════════════════════════════════════════════════
        CREDENTIAL BANNER
@@ -933,6 +970,102 @@ body > * {
       font-weight: 700;
       color: var(--accent-coral);
       letter-spacing: 0.01em;
+    }
+    /* ═══ DUAL PRICING CARDS ═══ */
+    .price-block--dual,
+    .pricing-columns--dual,
+    .pricing-breakdown--dual {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .price-option {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 16px 14px;
+      border-radius: 14px;
+      border: 1.5px solid rgba(232, 226, 217, 0.5);
+      background: rgba(255,255,255,.4);
+      position: relative;
+      transition: all .25s;
+    }
+    .price-option--featured {
+      border-color: var(--accent-coral);
+      background: rgba(224, 122, 95, 0.04);
+      box-shadow: 0 2px 16px rgba(224, 122, 95, 0.08);
+    }
+    .price-option__badge {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: #fff;
+      background: var(--accent-coral);
+      padding: 3px 12px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .price-option--monthly {
+      opacity: 0.85;
+      border-color: rgba(232, 226, 217, 0.4);
+      background: rgba(255,255,255,.3);
+      justify-content: center;
+    }
+    .price-option--monthly .price-value,
+    .price-option--monthly .price-value--sm,
+    .price-option--monthly .price-main--sm,
+    .price-option--monthly .breakdown-daily {
+      color: var(--accent-coral) !important;
+    }
+    .price-option .price-value--sm,
+    .price-option .price-main--sm {
+      font-size: 28px !important;
+    }
+    /* Dark variant for bottom stack section */
+    .price-option--dark {
+      border-color: rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+    }
+    .price-option--dark.price-option--featured {
+      border-color: var(--accent-coral);
+      background: rgba(224, 122, 95, 0.08);
+    }
+    .price-option--dark .breakdown-daily {
+      font-size: 22px;
+      font-weight: 700;
+      color: rgba(255,255,255,.9);
+      margin-bottom: 2px;
+    }
+    .price-option--dark .breakdown-sub {
+      font-size: 12px;
+      color: rgba(255,255,255,.45);
+      margin-bottom: 4px;
+    }
+    .price-option--dark.price-option--monthly {
+      opacity: 0.8;
+      border-color: rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+    }
+    .price-option--dark.price-option--monthly .breakdown-daily,
+    .price-option--dark.price-option--monthly .price-value,
+    .price-option--dark.price-option--monthly .price-value--sm {
+      color: var(--accent-coral) !important;
+    }
+    @media (max-width: 400px) {
+      .price-block--dual,
+      .pricing-columns--dual,
+      .pricing-breakdown--dual {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      .price-option { padding: 14px 10px; }
+      .price-option__badge { font-size: 8px; padding: 2px 8px; }
     }
     /* ═══════════════════════════════════════════════════════════════════════════
        BULLETS - CUSTOM HAND-CRAFTED MARKERS
@@ -7930,10 +8063,10 @@ body > * {
     /* Base reset for standalone viewing - no scrollbars, .sec-faq no gaps */
 /* Removed global overflow:hidden for faq */
 
-/* Hide all scrollbars */
-html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section::-webkit-scrollbar {
+/* Hide FAQ section scrollbars only */
+.sec-faq .faq-section::-webkit-scrollbar {
   display: none;
-}html, body, .sec-faq .faq-section {
+}.sec-faq .faq-section {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -9068,19 +9201,22 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
 </head>
 <body>
 <!-- ═══════════════════ HERO-LTO.HTML ═══════════════════ -->
+<!-- ANNOUNCEMENT BAR removed - notice is in top bar now -->
+
 <section class="sec sec-hero" data-sec="hero">
 <!-- TOP BAR - GLASS MORPHISM HEADER -->
   <header class="top-bar" id="topBar">
     <div class="top-bar__logo">
       <img src="https://i.imgur.com/IpRdQqw.png" alt="AI Design & Grow Experience" />
     </div>
-    <div class="top-bar__deal">
-      <div class="top-bar__deal-badge">
-        <span class="top-bar__deal-price">★ $327/yr</span>
-        <span class="top-bar__deal-was">$684</span>
+    <div class="top-bar__deal" style="gap:12px">
+      <div class="top-bar__deal-badge" style="display:flex;align-items:center;border-radius:100px;overflow:hidden;border:1px solid rgba(212,168,83,.25)">
+        <span class="top-bar__deal-price" style="background:linear-gradient(135deg,#c4734e,#b5674a);color:#fff;padding:6px 14px;font-weight:800;font-size:14px">$327/yr</span>
+        <span class="top-bar__deal-sep" style="padding:6px 6px;font-size:11px;color:#999;background:#FFF5EB">or</span>
+        <span class="top-bar__deal-monthly" style="padding:6px 14px;font-size:14px;font-weight:700;color:#5a4a3a;background:#FFF5EB">$57/mo</span>
       </div>
     </div>
-    <a href="https://digitallypurposed.thrivecart.com/ai-design-grow-experience-annual-only/" target="_blank" rel="noopener noreferrer" class="top-bar__cta">
+    <a href="https://www.skool.com/etsydesignclub/about" target="_blank" rel="noopener noreferrer" class="top-bar__cta">
       Get Instant Access Now
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
         <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -9176,7 +9312,7 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
               </iframe>
             </div>
             <!-- VSL Banner Image -->
-            <a href="https://digitallypurposed.thrivecart.com/ai-design-grow-experience-annual-only/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.skool.com/etsydesignclub/about" target="_blank" rel="noopener noreferrer">
               <img src="https://i.imgur.com/ID9ZQgV.png" alt="AI Design & Grow Experience" class="vsl-banner__image" style="cursor: pointer;">
             </a>
 
@@ -9204,24 +9340,30 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
           <!-- Offer Card - The Centerpiece -->
           <div class="offer-card">
 
-            <a href="https://digitallypurposed.thrivecart.com/ai-design-grow-experience-annual-only/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.skool.com/etsydesignclub/about" target="_blank" rel="noopener noreferrer">
               <img src="https://i.imgur.com/vHjzc3q.png" alt="Everything you get - complete overview" class="offer-card__overview" style="display: block; width: 100%; border-radius: 12px; margin-bottom: 20px; cursor: pointer;">
             </a>
 
-            <div class="price-block">
-              <div class="price-col price-col--left">
+            <div class="price-block price-block--dual">
+              <div class="price-option price-option--annual price-option--featured">
+                <span class="price-option__badge">Best Value</span>
                 <div class="price-amount">
                   <span class="price-value">$327</span>
                   <span class="price-period">/yr</span>
                 </div>
                 <span class="price-access">12 whole months access</span>
                 <span class="price-billing">Billed annually</span>
-              </div>
-              <div class="price-col price-col--right">
-                <span class="price-daily"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>$327/yr today when billed annually</span>
                 <div class="price-savings">
-                  <span class="price-savings__text">Save $357/yr vs $57/monthly</span>
+                  <span class="price-savings__text">Save $357/yr</span>
                 </div>
+              </div>
+              <div class="price-option price-option--monthly">
+                <div class="price-amount">
+                  <span class="price-value price-value--sm">$57</span>
+                  <span class="price-period">/mo</span>
+                </div>
+                <span class="price-access">Month to month</span>
+                <span class="price-billing">Billed monthly</span>
               </div>
             </div>
 
@@ -9254,7 +9396,7 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
               </div>
             </div>
 
-            <a href="https://digitallypurposed.thrivecart.com/ai-design-grow-experience-annual-only/" target="_blank" rel="noopener noreferrer" class="cta-button" id="heroCta">
+            <a href="https://www.skool.com/etsydesignclub/about" target="_blank" rel="noopener noreferrer" class="cta-button" id="heroCta">
               Get Instant Access Now
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -9265,7 +9407,7 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
             <img src="https://i.imgur.com/AFTdKOi.png" alt="Payment methods" class="offer-card__cards" style="display: block; max-width: 200px; margin: 12px auto 0; opacity: 0.8;">
 
             <div class="offer-card__microcopy">
-              <p class="microcopy-line">$327/yr annual · Save $357/yr vs $57/monthly · Cancel anytime</p>
+              <p class="microcopy-line">$327/yr annual · Save $357/yr vs monthly · Cancel anytime</p>
               <p class="microcopy-urgency">Price goes up very soon, before January.</p>
             </div>
           </div>
@@ -10219,7 +10361,7 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
   </div>
 
   <!-- Story CTA Section - Premium Compact -->
-  <section id="story-cta">
+  <section id="story-cta" style="position:relative;overflow:hidden">
     <!-- Watercolor decorations -->
     <div class="watercolor-blob blob-1"></div>
     <div class="watercolor-blob blob-2"></div>
@@ -10257,18 +10399,18 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
       <div class="cta-divider"></div>
 
       <!-- Two-column pricing layout -->
-      <div class="pricing-columns">
-        <!-- Left column - dominant -->
-        <div class="price-left">
+      <div class="pricing-columns pricing-columns--dual">
+        <div class="price-option price-option--annual price-option--featured">
+          <span class="price-option__badge">Best Value</span>
           <div class="price-main">$327<span class="price-unit">/yr</span></div>
           <div class="price-access">12 whole months access</div>
           <div class="price-billing">Billed annually</div>
+          <div class="price-savings">Save $357/yr</div>
         </div>
-
-        <!-- Right column - supporting stack -->
-        <div class="price-right">
-          <div class="price-daily"><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>$327/yr today when billed annually</div>
-          <div class="price-savings">Save $357/yr vs $57/monthly</div>
+        <div class="price-option price-option--monthly">
+          <div class="price-main price-main--sm">$57<span class="price-unit">/mo</span></div>
+          <div class="price-access">Month to month</div>
+          <div class="price-billing">Billed monthly</div>
         </div>
       </div>
 
@@ -10279,7 +10421,7 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
       <div class="billing-note">Billed annually. Renews yearly.</div>
 
       <!-- Premium CTA Button -->
-      <a href="https://digitallypurposed.thrivecart.com/ai-design-grow-experience-annual-only/" target="_blank" rel="noopener noreferrer" class="cta-button">
+      <a href="https://www.skool.com/etsydesignclub/about" target="_blank" rel="noopener noreferrer" class="cta-button">
         Get Instant Access
         <span class="btn-arrow">→</span>
       </a>
@@ -10294,7 +10436,7 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
         <span class="trust-dot"></span>
         <span class="trust-item">Instant access</span>
         <span class="trust-dot"></span>
-        <span class="trust-item">Save $357/yr vs monthly</span>
+        <span class="trust-item">Save $357/yr vs $57/mo</span>
       </div>
     </div>
   </section>
@@ -11421,16 +11563,22 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
 
           <div class="pricing-divider"></div>
 
-          <div class="pricing-breakdown">
-            <div class="breakdown-daily"><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>$327/yr today when billed annually</div>
-            <div class="breakdown-savings">
-              <span>Save $357/yr vs $57/monthly</span>
+          <div class="pricing-breakdown pricing-breakdown--dual">
+            <div class="price-option price-option--annual price-option--featured price-option--dark">
+              <span class="price-option__badge">Best Value</span>
+              <div class="breakdown-daily">$327/yr</div>
+              <div class="breakdown-sub">12 months · Billed annually</div>
+              <div class="breakdown-savings"><span>Save $357/yr</span></div>
+            </div>
+            <div class="price-option price-option--monthly price-option--dark">
+              <div class="breakdown-daily">$57/mo</div>
+              <div class="breakdown-sub">Month to month</div>
             </div>
           </div>
         </div>
 
         <!-- CTA Button -->
-        <a href="https://digitallypurposed.thrivecart.com/ai-design-grow-experience-annual-only/" target="_blank" rel="noopener noreferrer" class="cta-button">
+        <a href="https://www.skool.com/etsydesignclub/about" target="_blank" rel="noopener noreferrer" class="cta-button">
           <span>GET INSTANT ACCESS NOW</span>
           <svg class="cta-arrow" width="20" height="20" viewBox="0 0 20 20">
             <path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
@@ -11703,7 +11851,7 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
     <!-- CTA Button - The Gold Precious Object -->
     <div class="cta-wrapper">
       <div class="cta-glow"></div>
-      <a href="https://digitallypurposed.thrivecart.com/ai-design-grow-experience-annual-only/"
+      <a href="https://www.skool.com/etsydesignclub/about"
          target="_blank"
          rel="noopener noreferrer"
          class="cta-button">
@@ -11716,7 +11864,7 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
 
     <!-- Microcopy -->
     <p class="cta-microcopy">
-      Save $357/yr vs $57/monthly · Instant access · Cancel anytime
+      Save $357/yr vs $57/mo · Instant access · Cancel anytime
     </p>
 
     <!-- Trust section - integrated design -->
@@ -11793,7 +11941,6 @@ html::-webkit-scrollbar, .sec-faq body::-webkit-scrollbar, .sec-faq .faq-section
       &copy; 2026 Bailey Vann / Digitally Purposed. All rights reserved.
     </p>
   </div>
-</footer>
 </footer>
 
 <!-- Combined Scripts -->

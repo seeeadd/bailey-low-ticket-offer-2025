@@ -12253,8 +12253,53 @@ document.querySelector('.offer-header')?.classList.add('visible');
 /* On-page pricing card hover states */
 .price-option--annual{cursor:pointer;transition:all .25s}
 .price-option--annual:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(224,122,95,.15)}
-.price-option--monthly{cursor:pointer;transition:all .25s}
-.price-option--monthly:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.08)}
+
+/* Founder card — clickable, with pulse animation to draw the eye */
+.price-option--founder{cursor:pointer;transition:transform .25s,box-shadow .25s;animation:founderPulse 2.2s ease-in-out infinite}
+.price-option--founder:hover{transform:translateY(-3px) scale(1.015);box-shadow:0 14px 36px rgba(214,51,132,.28),0 0 0 5px rgba(214,51,132,.12) !important;animation-play-state:paused}
+@keyframes founderPulse{
+  0%,100%{box-shadow:0 8px 28px rgba(214,51,132,.18),0 0 0 4px rgba(214,51,132,.08)}
+  50%{box-shadow:0 12px 36px rgba(214,51,132,.32),0 0 0 8px rgba(214,51,132,.16)}
+}
+/* Inner $39 price pulse — subtle, in sync with card pulse */
+.price-option--founder .price-value,
+.price-option--founder .price-main{animation:founderPriceBeat 2.2s ease-in-out infinite;transform-origin:center}
+@keyframes founderPriceBeat{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.05)}
+}
+/* Badge gentle wiggle so "Birthday week only" feels celebratory */
+.price-option__badge--founder{animation:founderBadgeWiggle 3.4s ease-in-out infinite;transform-origin:center}
+@keyframes founderBadgeWiggle{
+  0%,90%,100%{transform:translateX(-50%) rotate(0)}
+  45%{transform:translateX(-50%) rotate(-2deg)}
+  55%{transform:translateX(-50%) rotate(2deg)}
+}
+
+/* Monthly (regular $57) — disabled / locked. No pointer. Shake on click. */
+.price-option--monthly{cursor:not-allowed;transition:transform .25s,box-shadow .25s;opacity:.62;filter:saturate(.7)}
+.price-option--monthly:hover{transform:none;box-shadow:none}
+.price-option--monthly::after{
+  content:'🔒  Founder Rate active';
+  position:absolute;bottom:8px;left:50%;transform:translateX(-50%);
+  font-size:10px;font-weight:700;color:#888;letter-spacing:.06em;text-transform:uppercase;
+  white-space:nowrap;opacity:0;transition:opacity .2s;
+}
+.price-option--monthly:hover::after{opacity:.85}
+.price-option--monthly.shake{animation:lockShake .55s cubic-bezier(.36,.07,.19,.97) both}
+@keyframes lockShake{
+  10%,90%{transform:translateX(-1px)}
+  20%,80%{transform:translateX(2px)}
+  30%,50%,70%{transform:translateX(-5px)}
+  40%,60%{transform:translateX(5px)}
+}
+.price-option--monthly.shake::after{opacity:1;color:#D63384}
+@media (prefers-reduced-motion: reduce){
+  .price-option--founder,
+  .price-option--founder .price-value,
+  .price-option--founder .price-main,
+  .price-option__badge--founder{animation:none !important}
+}
 
 @media(max-width:500px){
   .pay-popup-options{grid-template-columns:1fr}
@@ -12273,10 +12318,27 @@ function goToSkool(e){
   if(e){e.preventDefault();e.stopPropagation()}
   window.open(SKOOL_URL,'_blank','noopener');
 }
+/* Shake the locked $57 card on click and never navigate. */
+function shakeLocked(e){
+  if(e){e.preventDefault();e.stopPropagation()}
+  var card=e&&e.currentTarget;
+  if(!card)return;
+  card.classList.remove('shake');
+  /* Force reflow so the animation can re-trigger on rapid clicks */
+  void card.offsetWidth;
+  card.classList.add('shake');
+  setTimeout(function(){card.classList.remove('shake')},650);
+}
 document.addEventListener('DOMContentLoaded',function(){
-  document.querySelectorAll('.price-option--monthly').forEach(function(card){
+  /* Founder Rate cards: clickable, go to Skool */
+  document.querySelectorAll('.price-option--founder').forEach(function(card){
     card.style.cursor='pointer';
     card.addEventListener('click',goToSkool);
+  });
+  /* $57 regular cards: locked. Shake on click, no navigation. */
+  document.querySelectorAll('.price-option--monthly').forEach(function(card){
+    card.style.cursor='not-allowed';
+    card.addEventListener('click',shakeLocked);
   });
   var dealBadge=document.querySelector('.top-bar__deal-badge');
   if(dealBadge){
